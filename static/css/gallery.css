@@ -78,7 +78,12 @@ button {
 .results a {
   font-size: 22px;
   margin-left: 20px;
+  color: green;
 }
 .results {
   text-align: left;
+}
+
+#filters {
+  margin-top: 20px;
 }
