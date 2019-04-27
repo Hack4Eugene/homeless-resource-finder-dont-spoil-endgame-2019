@@ -108,19 +108,25 @@ def formatBed(my_list):
     count = 0
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
+        flask.g.results[count]['Name'] = ""
         if ("Gender" in i and i['Gender'] == "F"):
             flask.g.results[count]['Restrictions'].append('female.png')
         if ("Veteran" in i and i['Veteran'] == "Y"):
             flask.g.results[count]['Restrictions'].append('veteran.png')
         if ("Disabled" in i and i['Disabled'] == "Y"):
             flask.g.results[count]['Restrictions'].append('disabled.png')
-        if ("Beds" in i):
+        if ("Beds" in i and i['Beds'] != "N"):
             flask.g.results[count]['Name'] = str("(" + str(i['Beds']) + ") beds open at ")
+        else:
+            del flask.g.results[count]
+            continue
         if ("Name" in i):
             if (len(i["Name"]) > 28):
                 flask.g.results[count]['Name'] += str(i["Name"][:28] + "...")
-            else:
+            elif (len(i["Name"]) > 0 and flask.g.results[count]['Name'] != ""):
                 flask.g.results[count]['Name'] += str(i["Name"])
+            else:
+                flask.g.results[count]['Name'] = str(i["Name"])
         if ("Address" in i and i['Address'] != None):
             flask.g.results[count]['Address'] = i["Address"]
         if ("Phone" in i and i['Phone'] != None):
@@ -130,7 +136,6 @@ def formatBed(my_list):
 def formatFood(my_list):
     flask.g.results = []
     count = 0
-    print("my_list = " + str(my_list))
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
         if ("Gender" in i and i['Gender'] == "F"):
@@ -139,6 +144,9 @@ def formatFood(my_list):
             flask.g.results[count]['Restrictions'].append('veteran.png')
         if ("Disabled" in i and i['Disabled'] == "Y"):
             flask.g.results[count]['Restrictions'].append('disabled.png')
+        if ("Food" in i and i["Food"] == "N"):
+            del flask.g.results[count]
+            continue
         if ("Name" in i and i['Name'] != None):
             if (len(i["Name"]) > 28):
                 flask.g.results[count]["Name"] = str(i["Name"][:28] + "...")
@@ -153,7 +161,6 @@ def formatFood(my_list):
 def formatClinics(my_list):
     flask.g.results = []
     count = 0
-
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
         if ("Gender" in i and i['Gender'] == "F"):
@@ -162,11 +169,14 @@ def formatClinics(my_list):
             flask.g.results[count]['Restrictions'].append('veteran.png')
         if ("Disabled" in i and i['Disabled'] == "Y"):
             flask.g.results[count]['Restrictions'].append('disabled.png')
+        if ("Clinic" in i and i["Clinic"] == "N"):
+            del flask.g.results[count]
+            continue
         if ("Name" in i and i['Name'] != None):
             if (len(i["Name"]) > 28):
-                flask.g.results[count]['Name'] += str(i["Name"][:28] + "...")
+                flask.g.results[count]["Name"] = str(i["Name"][:28] + "...")
             else:
-                flask.g.results[count]['Name'] += str(i["Name"])
+                flask.g.results[count]['Name'] = str(i["Name"])
         if ("Address" in i and i['Address'] != None):
             flask.g.results[count]['Address'] = i["Address"]
         if ("Phone" in i and i['Phone'] != None):
