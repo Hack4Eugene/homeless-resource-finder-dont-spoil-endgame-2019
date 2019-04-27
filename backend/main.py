@@ -29,19 +29,26 @@ client = MongoClient('mongodb://dontspoilendgame:thanos123@cluster0-shard-00-00-
 db = client.homelessData
 
 # Get the MongoDB database collection we are using
-orgs = db.hmis
+# data = db.hmis
+data = db.test
 
 class CreateDictionary:
     """
     A class that creates a dictionary with set keys initialized to None. Provides an easy and streamlined way to create a
     dictionary that is in the correct format to be used to search in the MongoDB database.
     """
-    def __init__(self, category1=None, category2=None, city=None, company=None):
-        self.cat1 = category1
-        self.cat2 = category2
-        self.city = city
-        self.company = company
-        self.current_dict = {"Bed Type": self.cat1}
+    def __init__(self, gender=None, age=None, veteran=None, disabled=None, pets=None, family=None, food=None, beds=None, clinic=None):
+        self.gender = gender
+        self.age = age
+        self.veteran = veteran
+        self.disabled = disabled
+        self.pets = pets
+        self.family = family
+        self.food = food
+        self.beds = beds
+        self.clinic = clinic
+        self.current_dict = {"Gender": self.gender, "Age": self.age, "Veteran": self.veteran, "Disabled": self.disabled, "Pets": self.pets, "Family": self.family, "Food": self.food, "Beds": self.beds, "Clinic": self.clinic}
+        print("Current_dict = " + str(self.current_dict))
 
     def __repr__(self):
         # How the object will be printed
@@ -50,10 +57,11 @@ class CreateDictionary:
     def update_dictionary(self):
         # Update the dictionary in order to get rid of empty string and 'N/A' values and keys from the webpage
         for k, v in list(self.current_dict.items()):
-            if v == 'N/A':
+            if v == None:
                 del self.current_dict[k]
-            elif v == '':
-                del self.current_dict[k]
+
+    def add_val(self, key, value):
+        self.current_dict[key] = value
 
     def get_dictionary(self):
         # Return the dictionary in the format to search the database
@@ -73,21 +81,78 @@ def index():
     """
     print("entering aboutForm")
     # Request the information from the webpage that the user entered/selected
-    category1 = flask.request.form.get("gender")
-    #category2 = flask.request.form.get("age")
-    diction = CreateDictionary(category1)
+    gender = flask.request.form.get("gender")
+    age = flask.request.form.get("age")
+    veteran = flask.request.form.get("veteran")
+    disabled = flask.request.form.get("disabled")
+    pets = flask.request.form.get("pets")
+    family = flask.request.form.get("family")
+    diction = CreateDictionary(gender, age, veteran, disabled, pets, family)
     # Update the dictionary to get rid of any values and keys that weren't entered
-    diction.update_dictionary()
-    print(category1)
-    #print(category2)
-    orgs_list = []
-    # Search the database for data that matches the new dictionary
-    for i in orgs.find(diction.get_dictionary()):
-        # Append any found database entries into an empty list
-        orgs_list.append(i)
-    print(orgs_list)
+    #diction.update_dictionary()
+    flask.session["current_dict"] = diction.get_dictionary()
+    print("update_dictionary = " + str(diction))
+    # data_list = []
+    # # Search the database for data that matches the new dictionary
+    # for i in data.find(diction.get_dictionary()):
+    #     # Append any found database entries into an empty list
+    #     data_list.append(i)
+    # print(data_list)
     return flask.render_template("index.html")
-#def
+
+def formatBed(my_list):
+    flask.g.results = []
+    count = 0
+    for i in my_list:
+        flask.g.results.append({})
+        if ("Gender" in i and i['Gender'] == "F"):
+            flask.g.results[count]['Restrictions'] = 'F'
+        if ("Veteran" in i and i['Veteran'] == "Y"):
+            flask.g.results[count]['Restrictions'] += 'V'
+        if ("Disabled" in i and i['Disabled'] == "Y"):
+            flask.g.results[count]['Restrictions'] += 'D'
+        if ("Beds" in i):
+            flask.g.results[count]['BedsName'] = str("(" + str(i['Beds']) + ") beds open at ")
+        if ("Name" in i):
+            if (len(i["Name"]) > 16):
+                flask.g.results[count]['BedsName'] += str(i["Name"][:16] + "...")
+            else:
+                flask.g.results[count]['BedsName'] += str(i["Name"])
+        if ("Address" in i):
+            flask.g.results[count]['Address'] = i["Address"]
+        if ("Phone" in i):
+            flask.g.results[count]['Phone'] = i["Phone"]
+        count += 1
+
+@app.route("/search", methods=['POST'])
+def search():
+    button = flask.request.form.get("sub")
+    data_list = []
+    for key, value in list(flask.session["current_dict"].items()):
+        if (key == "Veteran" and value == "Y"):
+            del flask.session["current_dict"]['Veteran']
+        if (key == "Disabled" and value == "Y"):
+            del flask.session["current_dict"]['Disabled']
+        if (key == "Pets" and value == "N"):
+            del flask.session["current_dict"]['Pets']
+        if (key == "Family" and value == "Y"):
+            del flask.session["current_dict"]['Family']
+        if (key == "Gender" and value == "F"):
+            del flask.session["current_dict"]['Gender']
+    for k, v in list(flask.session["current_dict"].items()):
+            if v == None:
+                del flask.session["current_dict"][k]
+    for i in data.find(flask.session["current_dict"]):
+        data_list.append(i)
+    if (button == "beds"):
+        flask.g.bed = 1
+        formatBed(data_list)
+        return flask.render_template("userselection.html")
+    elif (button == "food"):
+        flask.g.food = 1
+    elif (button == "clinic"):
+        flask.g.clinic = 1
+    return flask.render_template("userselection.html")
 
 # def get_rating(party_id):
 #    '''

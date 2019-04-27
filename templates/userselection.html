@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homeless Resource Finder</title>
-    <link rel="stylesheet" href="./stylesheets/gallery.css" />
+    <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
     <div class="container">
@@ -15,6 +15,12 @@
       </div>
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
+        {% for results in g.results %}
+          <h4> {{results.Restrictions}} </h4>
+          <h4> {{results.BedsName}} </h4>
+          <h4> {{results.Address}} </h4>
+          <h4> {{results.Phone}} </h4>
+        {% endfor %}
       </div>
       <div class="Menu ContactForm">
         <h2 style="text-decoration:underline; font-size:28px;">
