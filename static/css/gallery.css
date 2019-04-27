@@ -1,3 +1,15 @@
+html {
+  font-size: 100%;
+}
+
+span {
+  cursor: pointer;
+}
+
+input {
+  cursor: pointer;
+}
+
 body {
   margin: 40px;
   background-color: #357df2;
