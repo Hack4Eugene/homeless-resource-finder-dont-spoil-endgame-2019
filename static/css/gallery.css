@@ -75,3 +75,7 @@ button {
 #filters {
   margin-top: 20px;
 }
+
+.Resources label {
+  font-size: 22px;
+}
