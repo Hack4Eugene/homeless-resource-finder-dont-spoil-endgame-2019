@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Homeless Resource Finder</title>
+    <link rel="stylesheet" href="../static/css/gallery.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="Menu Header">
+        <h1>Homeless Resource Finder</h1>
+        <h3>Eugene, OR</h3>
+        <a
+          style="position:absolute; top:10px; left:10px; font-size:18px; color:red;"
+          href="http://localhost:5000/about"
+          >Restart</a
+        >
+      </div>
+
+      <div class="Menu Resources">
+        <form method="POST" action="/search" id="search" name="resGet">
+          <h2 style="text-decoration:underline;">Available Resources</h2>
+          <div id="buttonWrapper">
+            <button
+              style="padding: 20px 28px 20px 28px; "
+              type="submit"
+              id="beds"
+              name="sub"
+              value="beds"
+            >
+              Beds
+            </button>
+            <br />
+            <button
+              style="padding: 20px 30px 20px 30px; "
+              type="submit"
+              id="food"
+              name="sub"
+              value="food"
+            >
+              Food
+            </button>
+            <br />
+            <button
+              style="padding: 20px 20px 20px 20px; "
+              type="submit"
+              id="clinic"
+              name="sub"
+              value="clinic"
+            >
+              Clinics
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="Menu ContactForm">
+        <h2 style="text-decoration:underline; font-size:28px;">
+          Emergency Contact Form
+        </h2>
+        <a href="#">Contact 1</a> <a href="#">Contact 2</a>
+        <a href="#">Contact 3</a> <br />
+        <br />
+        <h2 style="text-decoration:underline; font-size:28px;">
+          Emergency Locations
+        </h2>
+        <a href="#">Location 1</a> <a href="#">Location 2</a>
+        <a href="#">Location 3</a>
+      </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </body>
+</html>
+
+<!--
+    <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+      <title>Homeless Resource Finder</title>
+      <link rel="stylesheet" href="../static/css/gallery.css" />
+    </head>
+    <body>
+      <div class="container">
+        <div class="Menu Header">
+          <h1>Homeless Resource Finder</h1>
+          <h3>Eugene, OR</h3>
+        </div>
+
+        <div class="Menu Resources">
+          <form method="POST" action="/search" id="search" name="resGet">
+            <h2 style="text-decoration:underline;">Available Resources</h2>
+            <div id="buttonWrapper">
+              <button
+                style="padding: 20px 28px 20px 28px; "
+                type="button"
+                id="beds"
+                name="beds"
+                onclick="window.location.href = 'http://localhost:5000/beds';"
+              >
+                Beds
+              </button>
+              <br />
+              <button
+                style="padding: 20px 30px 20px 30px; "
+                type="button"
+                id="food"
+                name="food"
+                onclick="window.location.href = 'http://localhost:5000/food';"
+              >
+                Food
+              </button>
+              <br />
+              <button
+                style="padding: 20px 20px 20px 20px; "
+                type="button"
+                id="clinics"
+                name="clinics"
+                onclick="window.location.href = 'http://localhost:5000/clinics';"
+              >
+                Clinics
+              </button>
+            </div>
+          </form>
+        </div>
+        <div class="Menu ContactForm">
+          <h2 style="text-decoration:underline; font-size:28px;">
+            Emergency Contact Form
+          </h2>
+          <a href="#">Contact 1</a> <a href="#">Contact 2</a>
+          <a href="#">Contact 3</a> <br />
+          <br />
+          <h2 style="text-decoration:underline; font-size:28px;">
+            Emergency Locations
+          </h2>
+          <a href="#">Location 1</a> <a href="#">Location 2</a>
+          <a href="#">Location 3</a>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    </body>
+  </html>
+-->
