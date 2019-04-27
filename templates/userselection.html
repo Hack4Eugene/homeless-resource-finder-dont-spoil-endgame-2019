@@ -12,34 +12,31 @@
       <div class="Menu Header">
         <h1>Homeless Resource Finder</h1>
         <h3>Eugene, OR</h3>
+        <a
+          style="position:absolute; top:10px; left:10px; font-size:18px; color:red;"
+          href="http://localhost:5000/index"
+          >Return Home</a
+        >
       </div>
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
         {% for results in g.results %}
-<<<<<<< HEAD
-        <div class="row">
+        <div id="filters">
           {%for img in results.Restrictions%}
-          <div class="column">
-            <img
-              style="height:25%; width:25%; display:inline-block; margin-left: 20px;"
-              src="./static/images/{{img}}"
-              alt=""
-            />
-          </div>
+          <img
+            style="height:100px; width:100px; margin-left: 10px; float:left;"
+            src="./static/images/{{img}}"
+            alt=""
+          />
+
           {% endfor %}
         </div>
         <div class="results">
           <h4 style="font-size:18px; margin-left: 20px;">{{results.Name}}</h4>
           <p>{{results.Address}}</p>
-          <a href="tel:{{results.Phone}}">{{results.Phone}}</a> {% endfor %}
+          <a href="tel:{{results.Phone}}">{{results.Phone}}</a>
         </div>
-=======
-          <h4> {{results.Restrictions}} </h4>
-          <h4> {{results.Name}} </h4>
-          <h4> {{results.Address}} </h4>
-          <h4> {{results.Phone}} </h4>
         {% endfor %}
->>>>>>> b70f6a756b0500011ea757c6720823f7108985f6
       </div>
       <div class="Menu ContactForm">
         <h2 style="text-decoration:underline; font-size:28px;">

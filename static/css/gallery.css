@@ -35,6 +35,7 @@ body {
   grid-column: 1 / span 3;
   text-align: center;
   border: 2px solid white;
+  position: relative;
 }
 
 .Resources {
@@ -90,7 +91,12 @@ button {
 .results a {
   font-size: 22px;
   margin-left: 20px;
+  color: green;
 }
 .results {
   text-align: left;
+}
+
+#filters {
+  margin-top: 20px;
 }
