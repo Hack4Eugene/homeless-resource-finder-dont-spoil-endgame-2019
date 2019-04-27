@@ -29,6 +29,7 @@ body {
   font-size: 150%;
 }
 .Header {
+  position: relative;
   grid-column: 1 / span 3;
   text-align: center;
   border: 2px solid white;
@@ -80,17 +81,23 @@ button {
   margin-left: 20px;
   color: green;
 }
-.results {
+.results_backdrop {
   text-align: left;
+  padding: 10px;
+
+  border: 1px white;
+  border-radius: 5px;
+  width: 500px;
 }
 #filters {
   margin-top: 20px;
-<<<<<<< HEAD
-}
-=======
+  margin-left: 20px;
 }
 
 .Resources label {
   font-size: 22px;
 }
->>>>>>> 1e85f1419ff2d84c92fa19c7d6cee7ba458699a3
+
+#map {
+  height: 100%;
+}

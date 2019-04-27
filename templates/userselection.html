@@ -13,27 +13,38 @@
         <h1>Homeless Resource Finder</h1>
         <h3>Eugene, OR</h3>
         <a
-          style="position:absolute; top:10px; left:10px; font-size:24px; color:red;"
+          style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
           href="http://localhost:5000/index"
           >Return Home</a
         >
       </div>
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
-        {% for results in g.results %}
-        <div id="filters">
-          {%for img in results.Restrictions%}
-          <img
-            style="height:100px; width:100px; margin-left: 10px; float:left;"
-            src="./static/images/{{img}}"
-            alt=""
-          />
-          {% endfor %}
-        </div>
-        <div class="results">
-          <h4 style="font-size:18px; margin-left: 20px;">{{results.Name}}</h4>
-          <p>{{results.Address}}</p>
-          <a href="tel:{{results.Phone}}">{{results.Phone}}</a>
+        <div class="results_backdrop">
+          {% for results in g.results %}
+
+          <div class="results">
+            <h4
+              style="font-size:22px; margin-left: 20px; margin-top:5; margin-bottom:0; text-decoration:underline;"
+            >
+              {{results.Name}}
+            </h4>
+            <p>Address: {{results.Address}}</p>
+            <a href="tel:{{results.Phone}}">Phone: {{results.Phone}}</a>
+          </div>
+          <br />
+          <label style="margin-left:20px; float:left;" for="#filters"
+            >Accessibility:
+          </label>
+          <div id="filters">
+            {%for img in results.Restrictions%}
+            <img
+              style="height:100px; width:100px; margin-left: 10px; float:left;"
+              src="./static/images/{{img}}"
+              alt=""
+            />
+            {% endfor %}
+          </div>
         </div>
         {% endfor %}
       </div>
@@ -41,6 +52,8 @@
         <h2 style="text-decoration:underline; font-size:28px;">
           Emergency Contact Form
         </h2>
+        <!-- IDEA: City of Eugene Helpline Contact Form -->
+
         <label style="color:#ef0b31" for="#EES"
           ><i>Eugene Emergency Services</i></label
         >
@@ -50,7 +63,10 @@
         <a style="font-size:20px;" href="5413448757"
           ><label for="">Location: </label>1255 Hilyard St, Eugene, OR 97401</a
         >
+
+        <!-- IDEA: Sacred Heart Helpline Contact Form -->
         <br />
+
         <label style="color:#ef0b31" for="#SHMC"
           ><i>Sacred Heart Medical Center Home Health Services</i></label
         >
@@ -60,6 +76,19 @@
         <a style="font-size:20px;" href="#"
           ><label for="">Location: </label>677 E 12th Ave, Eugene, OR 97401</a
         >
+
+        <!-- IDEA: Non-Emergency Helpline Contact Form -->
+        <br />
+        <label style="color:#ef0b31" for="#NEH"
+          ><i>Non-Emergency Helpline</i></label
+        >
+        <a id="NEH" style="" href="#">
+          <label for="">Phone: </label>(541) 555-5555</a
+        >
+        <a style="font-size:20px;" href="5415555555"
+          ><label for="">Location: </label>2232 Coburg Rd, Eugene, OR 97401</a
+        >
+        <br />
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>

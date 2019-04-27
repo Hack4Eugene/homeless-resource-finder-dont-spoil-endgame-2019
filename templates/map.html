@@ -7,62 +7,35 @@
     <title>Homeless Resource Finder</title>
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
-  <body onload="getLocation()">
+  <body>
     <div class="container">
       <div class="Menu Header">
         <h1>Homeless Resource Finder</h1>
         <h3>Eugene, OR</h3>
         <a
           style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
-          href="http://localhost:5000/about"
-          >Restart</a
+          href="http://localhost:5000/index"
+          >Return Home</a
         >
       </div>
 
       <div class="Menu Resources">
-        <form method="POST" action="/search" id="search" name="resGet">
-          <h2 style="text-decoration:underline;">Available Resources</h2>
-          <div id="buttonWrapper">
-            <button
-              style="padding: 20px 28px 20px 28px; width:180px; text-decoration:bold;"
-              type="submit"
-              id="beds"
-              name="sub"
-              value="beds"
-            >
-              Beds<img
-                style="height:20%; width:20%; padding-left:10px; "
-                src="../static/images/bed.png"
-              />
-            </button>
-            <br />
-            <button
-              style="padding: 20px 30px 20px 30px; width:180px; text-decoration:bold;"
-              type="submit"
-              id="food"
-              name="sub"
-              value="food"
-            >
-              Food<img
-                style="height:20%; width:20%; padding-left:10px; "
-                src="../static/images/food.png"
-              />
-            </button>
-            <br />
-            <button
-              style="padding: 20px 20px 20px 20px; width:180px; text-decoration:bold;"
-              type="submit"
-              id="clinic"
-              name="sub"
-              value="clinic"
-            >
-              Clinics<img
-                style="height:20%; width:20%; padding-left:10px;"
-                src="../static/images/clinic.png"
-              />
-            </button>
-          </div>
-        </form>
+        <
+        <div id="map"></div>
+        <script>
+          var map;
+          function initMap() {
+            map = new google.maps.Map(document.getElementById("map"), {
+              center: { lat: -34.397, lng: 150.644 },
+              zoom: 8
+            });
+          }
+        </script>
+        <script
+          src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDDwo3Y3AHfBw-BG6YczYZCH39f26Q8yzI&callback=initMap"
+          async
+          defer
+        ></script>
       </div>
       <div class="Menu ContactForm">
         <h2 style="text-decoration:underline; font-size:28px;">
