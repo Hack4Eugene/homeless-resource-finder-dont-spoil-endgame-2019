@@ -101,6 +101,9 @@ def index():
     return flask.render_template("index.html")
 
 def formatBed(my_list):
+    '''
+    Formats the list into a usable form for the HTML
+    '''
     flask.g.results = []
     count = 0
     for i in my_list:
@@ -111,21 +114,70 @@ def formatBed(my_list):
             flask.g.results[count]['Restrictions'] += 'V'
         if ("Disabled" in i and i['Disabled'] == "Y"):
             flask.g.results[count]['Restrictions'] += 'D'
-        if ("Beds" in i):
-            flask.g.results[count]['BedsName'] = str("(" + str(i['Beds']) + ") beds open at ")
-        if ("Name" in i):
+        if ("Beds" in i and i['Beds'] != None):
+            flask.g.results[count]['Name'] = str("(" + str(i['Beds']) + ") beds open at ")
+        if ("Name" in i and i['Name'] != None):
             if (len(i["Name"]) > 16):
-                flask.g.results[count]['BedsName'] += str(i["Name"][:16] + "...")
+                flask.g.results[count]['Name'] += str(i["Name"][:16] + "...")
             else:
-                flask.g.results[count]['BedsName'] += str(i["Name"])
-        if ("Address" in i):
+                flask.g.results[count]['Name'] += str(i["Name"])
+        if ("Address" in i and i['Address'] != None):
             flask.g.results[count]['Address'] = i["Address"]
-        if ("Phone" in i):
+        if ("Phone" in i and i['Phone'] != None):
+            flask.g.results[count]['Phone'] = i["Phone"]
+        count += 1
+
+def formatFood(my_list):
+    flask.g.results = []
+    count = 0
+    print("my_list = " + str(my_list))
+    for i in my_list:
+        flask.g.results.append({})
+        if ("Gender" in i and i['Gender'] == "F"):
+            flask.g.results[count]['Restrictions'] = 'F'
+        if ("Veteran" in i and i['Veteran'] == "Y"):
+            flask.g.results[count]['Restrictions'] += 'V'
+        if ("Disabled" in i and i['Disabled'] == "Y"):
+            flask.g.results[count]['Restrictions'] += 'D'
+        if ("Name" in i and i['Name'] != None):
+            if (len(i["Name"]) > 16):
+                flask.g.results[count]["Name"] = str(i["Name"][:16] + "...")
+            else:
+                flask.g.results[count]['Name'] = str(i["Name"])
+        if ("Address" in i and i['Address'] != None):
+            flask.g.results[count]['Address'] = i["Address"]
+        if ("Phone" in i and i['Phone'] != None):
+            flask.g.results[count]['Phone'] = i["Phone"]
+        count += 1
+
+def formatClinics(my_list):
+    flask.g.results = []
+    count = 0
+    for i in my_list:
+        flask.g.results.append({})
+        if ("Gender" in i and i['Gender'] == "F"):
+            flask.g.results[count]['Restrictions'] = 'F'
+        if ("Veteran" in i and i['Veteran'] == "Y"):
+            flask.g.results[count]['Restrictions'] += 'V'
+        if ("Disabled" in i and i['Disabled'] == "Y"):
+            flask.g.results[count]['Restrictions'] += 'D'
+        if ("Name" in i and i['Name'] != None):
+            if (len(i["Name"]) > 16):
+                flask.g.results[count]['Name'] += str(i["Name"][:16] + "...")
+            else:
+                flask.g.results[count]['Name'] += str(i["Name"])
+        if ("Address" in i and i['Address'] != None):
+            flask.g.results[count]['Address'] = i["Address"]
+        if ("Phone" in i and i['Phone'] != None):
             flask.g.results[count]['Phone'] = i["Phone"]
         count += 1
 
 @app.route("/search", methods=['POST'])
 def search():
+    '''
+    Checks through the session dictionary to make sure we are passing it the values that need to be
+    displayed on the HTML page.
+    '''
     button = flask.request.form.get("sub")
     data_list = []
     for key, value in list(flask.session["current_dict"].items()):
@@ -139,6 +191,8 @@ def search():
             del flask.session["current_dict"]['Family']
         if (key == "Gender" and value == "F"):
             del flask.session["current_dict"]['Gender']
+        if (key == "Age" and value == "Y"):
+            del flask.session["current_dict"]['Age']
     for k, v in list(flask.session["current_dict"].items()):
             if v == None:
                 del flask.session["current_dict"][k]
@@ -150,9 +204,12 @@ def search():
         return flask.render_template("userselection.html")
     elif (button == "food"):
         flask.g.food = 1
+        formatFood(data_list)
+        return flask.render_template("userselection.html")
     elif (button == "clinic"):
         flask.g.clinic = 1
-    return flask.render_template("userselection.html")
+        formatClinics(data_list)
+        return flask.render_template("userselection.html")
 
 # def get_rating(party_id):
 #    '''
