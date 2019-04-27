@@ -1,7 +1,0 @@
-psycopg2-binary
-flask
-flask-migrate
-geoalchemy2
-requests
-WTForms
-pytest
