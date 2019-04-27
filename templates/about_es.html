@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Buscador de Recursos Para Personas Sin Hogar</title>
+    <link rel="stylesheet" href="../static/css/gallery.css" />
+    <script type="text/javascript" src = "../static/scale.js"> </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="Menu Header">
+        <h1>Acerca de Ti</h1>
+        <h3 style="font-size:24px">
+          Por favor, tome un momento para contarnos un poco sobre usted.
+        </h3>
+      </div>
+      <div class="Menu Resources">
+        <form method="POST" action="/index" id="about" name="about">
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">Género</h3></div>
+            <div class="column">
+              <label for="male">Hombre</label>
+              <input name="gender" id="male" value="M" type="radio" />
+            </div>
+            <div class="column">
+              <label for="female">Mujer</label>
+              <input name="gender" id="female" value="F" type="radio" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <h3 style="font-size:20px;">¿18+ años de edad?</h3>
+            </div>
+            <div class="column">
+              <label for="yes">Sí</label>
+              <input name="age" id="yes" value="Y" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="age" id="no" value="N" type="radio" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">¿Veterano?</h3></div>
+            <div class="column">
+              <label for="yes">Sí</label>
+              <input name="veteran" id="yes" value="Y" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="veteran" id="no" value="N" type="radio" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">¿Discapacitado?</h3></div>
+            <div class="column">
+              <label for="yes">Sí</label>
+              <input name="disabled" id="yes" value="Y" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="disabled" id="no" value="N" type="radio" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">¿Mascotas?</h3></div>
+            <div class="column">
+              <label for="yes">Sí</label>
+              <input name="pets" id="yes" value="Y" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="pets" id="no" value="N" type="radio" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="column">
+              <h3 style="font-size:20px;">¿Estás con la familia?</h3>
+            </div>
+            <div class="column">
+              <label for="yes">Sí</label>
+              <input name="family" id="yes" value="Y" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="family" id="no" value="N" type="radio" />
+            </div>
+          </div>
+          <button
+            style="background-color: #2dd844"
+            type="submit"
+            id="continue"
+            onclick="window.location.href = 'http://localhost:5000/index';"
+          >
+            Continuar
+          </button>
+        </form>
+      </div>
+      <div class="Menu ContactForm">
+        <h2 style="text-decoration:underline; font-size:28px;">
+        Formulario de contacto de emergencia
+        </h2>
+        <a href="#">Contacto 1</a> <a href="#">Contacto 2</a>
+        <a href="#">Contacto 3</a> <br />
+        <br />
+        <h2 style="text-decoration:underline; font-size:28px;">
+          Ubicaciones de emergencia
+        </h2>
+        <a href="#">Location 1</a> <a href="#">Location 2</a>
+        <a href="#">Location 3</a>
+      </div>
+    </div>
+    <span class="btnsize">
+      test here
+    </span>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  </body>
+</html>
