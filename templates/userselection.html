@@ -1,52 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Homeless Resource Finder</title>
-    <link rel="stylesheet" href="../static/css/gallery.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="Menu Header">
-        <h1>Homeless Resource Finder</h1>
-        <h3>Eugene, OR</h3>
-      </div>
-      <div class="Menu Resources">
-        <!-- IDEA: Here is where we will inject the appropriate DB data -->
-        {% for results in g.results %}
-        <div id="filters">
-          {%for img in results.Restrictions%}
-          <img
-            style="height:100px; width:100px; margin-left: 10px; float:left;"
-            src="./static/images/{{img}}"
-            alt=""
-          />
-
-          {% endfor %}
-        </div>
-        <div class="results">
-          <h4 style="font-size:18px; margin-left: 20px;">{{results.Name}}</h4>
-          <p>{{results.Address}}</p>
-          <a href="tel:{{results.Phone}}">{{results.Phone}}</a>
-        </div>
-        {% endfor %}
-      </div>
-      <div class="Menu ContactForm">
-        <h2 style="text-decoration:underline; font-size:28px;">
-          Emergency Contact Form
-        </h2>
-        <a href="#">Contact 1</a> <a href="#">Contact 2</a>
-        <a href="#">Contact 3</a> <br />
-        <br />
-        <h2 style="text-decoration:underline; font-size:28px;">
-          Emergency Locations
-        </h2>
-        <a href="#">Location 1</a> <a href="#">Location 2</a>
-        <a href="#">Location 3</a>
-      </div>
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Homeless Resource Finder</title>
+  <link rel="stylesheet" href="../static/css/gallery.css" />
+ </head>
+ <body>
+  <div class="container">
+   <div class="Menu Header">
+    <h1>Homeless Resource Finder</h1>
+    <h3>Eugene, OR</h3>
+    <a style="float:left; display:inline-block; align:top;" href="index"
+     >Return Home</a
+    >
+   </div>
+   <div class="Menu Resources">
+    <!-- IDEA: Here is where we will inject the appropriate DB data -->
+    {% for results in g.results %}
+    <div id="filters">
+     {%for img in results.Restrictions%}
+     <img
+      style="height:100px; width:100px; margin-left: 10px; float:left;"
+      src="./static/images/{{img}}"
+      alt=""
+     />
+     {% endfor %}
     </div>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  </body>
+    <div class="results">
+     <h4 style="font-size:18px; margin-left: 20px;">{{results.Name}}</h4>
+     <p>{{results.Address}}</p>
+     <a href="tel:{{results.Phone}}">{{results.Phone}}</a>
+    </div>
+    {% endfor %}
+   </div>
+   <div class="Menu ContactForm">
+    <h2 style="text-decoration:underline; font-size:28px;">
+     Emergency Contact Form
+    </h2>
+    <a href="#">Contact 1</a> <a href="#">Contact 2</a>
+    <a href="#">Contact 3</a> <br />
+    <br />
+    <h2 style="text-decoration:underline; font-size:28px;">
+     Emergency Locations
+    </h2>
+    <a href="#">Location 1</a> <a href="#">Location 2</a>
+    <a href="#">Location 3</a>
+   </div>
+  </div>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+ </body>
 </html>

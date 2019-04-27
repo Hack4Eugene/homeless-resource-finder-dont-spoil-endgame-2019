@@ -2,7 +2,6 @@ body {
   margin: 40px;
   background-color: #357df2;
 }
-
 .container {
   display: grid;
   grid-gap: 5px;
@@ -10,7 +9,6 @@ body {
   grid-template-rows: auto auto;
   color: #444;
 }
-
 .Menu {
   background-color: #444;
   color: #fff;
@@ -18,13 +16,11 @@ body {
   padding: 10px;
   font-size: 150%;
 }
-
 .Header {
   grid-column: 1 / span 3;
   text-align: center;
   border: 2px solid white;
 }
-
 .Resources {
   grid-column: 1 / span 2;
   grid-row: 2;
@@ -33,13 +29,11 @@ body {
   border: 2px solid white;
   text-align: center;
 }
-
 .ContactForm {
   grid-row: 2;
   text-align: center;
   border: 2px solid white;
 }
-
 button {
   font: bold 24px Arial;
   background-color: #357df2;
@@ -48,7 +42,6 @@ button {
   border: 1px solid #cccccc;
   margin-bottom: 30px;
 }
-
 .ContactForm a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -56,25 +49,20 @@ button {
   color: white;
   display: block;
 }
-
 .ContactForm a:hover {
   color: #357df2;
 }
-
 .row {
   display: flex;
   margin-top: 20px;
 }
-
 .column {
   flex: 50%;
 }
-
 .results p {
   font-size: 18px;
   margin-left: 20px;
 }
-
 .results a {
   font-size: 22px;
   margin-left: 20px;
@@ -83,7 +71,6 @@ button {
 .results {
   text-align: left;
 }
-
 #filters {
   margin-top: 20px;
 }
