@@ -16,11 +16,22 @@
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
         {% for results in g.results %}
-          <h4> {{results.Restrictions}} </h4>
-          <h4> {{results.BedsName}} </h4>
-          <h4> {{results.Address}} </h4>
-          <h4> {{results.Phone}} </h4>
-        {% endfor %}
+        <div class="row">
+          {%for img in results.Restrictions%}
+          <div class="column">
+            <img
+              style="height:25%; width:25%; display:inline-block; margin-left: 20px;"
+              src="./static/images/{{img}}"
+              alt=""
+            />
+          </div>
+          {% endfor %}
+        </div>
+        <div class="results">
+          <h4 style="font-size:18px; margin-left: 20px;">{{results.Name}}</h4>
+          <p>{{results.Address}}</p>
+          <a href="tel:{{results.Phone}}">{{results.Phone}}</a> {% endfor %}
+        </div>
       </div>
       <div class="Menu ContactForm">
         <h2 style="text-decoration:underline; font-size:28px;">

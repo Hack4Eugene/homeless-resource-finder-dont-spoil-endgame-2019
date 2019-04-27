@@ -69,3 +69,16 @@ button {
 .column {
   flex: 50%;
 }
+
+.results p {
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.results a {
+  font-size: 22px;
+  margin-left: 20px;
+}
+.results {
+  text-align: left;
+}
