@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homeless Resource Finder</title>
-    <link rel="stylesheet" href="./stylesheets/gallery.css" />
+    <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
     <div class="container">
@@ -13,33 +13,36 @@
         <h1>Homeless Resource Finder</h1>
         <h3>Eugene, OR</h3>
       </div>
+      
       <div class="Menu Resources">
-        <h2 style="text-decoration:underline;">Available Resources</h2>
-        <div id="buttonWrapper">
-          <button
-            style="padding: 20px 28px 20px 28px; "
-            type="button"
-            id="beds"
-          >
-            Beds
-          </button>
-          <br />
-          <button
-            style="padding: 20px 30px 20px 30px; "
-            type="button"
-            id="food"
-          >
-            Food
-          </button>
-          <br />
-          <button
-            style="padding: 20px 20px 20px 20px; "
-            type="button"
-            id="clinics"
-          >
-            Clinics
-          </button>
-        </div>
+        <form method="POST" action="/search" id="search" name="resGet">
+          <h2 style="text-decoration:underline;">Available Resources</h2>
+          <div id="buttonWrapper">
+            <button
+              style="padding: 20px 28px 20px 28px; "
+              type="button"
+              id="beds"
+            >
+              Beds
+            </button>
+            <br />
+            <button
+              style="padding: 20px 30px 20px 30px; "
+              type="button"
+              id="food"
+            >
+              Food
+            </button>
+            <br />
+            <button
+              style="padding: 20px 20px 20px 20px; "
+              type="button"
+              id="clinics"
+            >
+              Clinics
+            </button>
+          </div>
+        </form>
       </div>
       <div class="Menu ContactForm">
         <h2 style="text-decoration:underline; font-size:28px;">

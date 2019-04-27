@@ -28,12 +28,12 @@ install:  env  credentials
 # 'make run' runs the built-in Flask server.  Useful for debugging,
 # but not suitable for long-running service.
 #
-credentials:  memos/credentials.ini
-memos/credentials.ini:
+credentials:  backend/credentials.ini
+backend/credentials.ini:
 	echo "You just install the database and credentials.ini for it"
 
 run:	env credentials
-	$(INVENV) cd memos; python3 flask_main.py
+	$(INVENV) cd backend; python3 main.py
 
 
 
@@ -51,8 +51,8 @@ dist:	env
 # requires re-running installation and configuration steps
 # 
 clean:
-	cd memos; rm -f *.pyc
-	cd memos; rm -rf __pycache__
+	cd backend; rm -f *.pyc
+	cd backend; rm -rf __pycache__
 
 veryclean:
 	make clean

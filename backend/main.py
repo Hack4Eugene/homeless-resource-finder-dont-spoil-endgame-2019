@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 '''
 main.py
 
@@ -6,22 +7,23 @@ Core Flask logic for the Nightlife application
 
 # Python libraries (note: these dependencies are handled through Docker, your local machine may not have these.)
 import json, os, operator
-from utils import *
-from flask import Flask, request, redirect, url_for, flash, abort, jsonify, render_template
-from models import db, Event, Review
-from forms import NewEventForm
+#from utils import *
+from flask import Flask, request, redirect, url_for, flash, abort, jsonify, render_template, session
+#from models import db, Event, Review
+#from forms import NewEventForm
 import flask
 from pymongo import MongoClient
 
 # Establish flask application on startup
-app = flask.Flask(__name__, static_folder="static", template_folder="templates")
+app = flask.Flask(__name__, static_folder="../static", template_folder="../templates")
 
 
 
 # Establish database at run time
 # Get the MongoDB client
 
-client = MongoClient('mongodb+srv://dontspoilendgame:thanos123@cluster0-spqqu.mongodb.net/test')
+#client = MongoClient('mongodb://dontspoilendgame:thanos123@cluster0-spqqu.mongodb.net')
+client = MongoClient('mongodb://dontspoilendgame:thanos123@cluster0-shard-00-00-spqqu.mongodb.net:27017,cluster0-shard-00-01-spqqu.mongodb.net:27017,cluster0-shard-00-02-spqqu.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true')
 
 # Get the MongoDB database we are using
 db = client.homelessData
@@ -29,9 +31,61 @@ db = client.homelessData
 # Get the MongoDB database collection we are using
 orgs = db.hmis
 
-@app.route("/")
-@app.route("/index")
+class CreateDictionary:
+    """
+    A class that creates a dictionary with set keys initialized to None. Provides an easy and streamlined way to create a 
+    dictionary that is in the correct format to be used to search in the MongoDB database. 
+    """
+    def __init__(self, category1=None, category2=None, city=None, company=None):
+        self.cat1 = category1
+        self.cat2 = category2
+        self.city = city
+        self.company = company
+        self.current_dict = {"Bed Type": self.cat1}
 
+    def __repr__(self):
+        # How the object will be printed
+        return '{}'.format(self.current_dict)
+
+    def update_dictionary(self):
+        # Update the dictionary in order to get rid of empty string and 'N/A' values and keys from the webpage
+        for k, v in list(self.current_dict.items()):
+            if v == 'N/A':
+                del self.current_dict[k]
+            elif v == '':
+                del self.current_dict[k]
+
+    def get_dictionary(self):
+        # Return the dictionary in the format to search the database
+        return self.current_dict
+
+@app.route("/")
+@app.route("/about", methods=['POST'])
+def aboutForm():
+    """
+    The default page which is a search page that allows the client to send various amounts of information 
+    to the server in order to check whether or not the requested resource is in the database. Redirects to
+    the results page with the specified parameters.
+    """
+    print("entering aboutForm")
+    # Request the information from the webpage that the user entered/selected
+    category1 = flask.request.form.get("gender")
+    #category2 = flask.request.form.get("age")
+    diction = CreateDictionary(category1)
+    # Update the dictionary to get rid of any values and keys that weren't entered
+    diction.update_dictionary()
+    print(category1)
+    #print(category2)
+    orgs_list = []
+    # Search the database for data that matches the new dictionary
+    for i in orgs.find(diction.get_dictionary()):
+        # Append any found database entries into an empty list
+        orgs_list.append(i)
+    print(orgs_list)
+    return flask.render_template("about.html")
+
+#@app.route("/index")
+#def 
 
 # def get_rating(party_id):
 #    '''
@@ -253,3 +307,7 @@ orgs = db.hmis
 #    db.session.commit()
 
 #    return redirect('index.html')
+
+if __name__ == '__main__':
+    app.secret_key='secret123'
+    app.run(debug=True)

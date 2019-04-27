@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homeless Resource Finder</title>
-    <link rel="stylesheet" href="./stylesheets/gallery.css" />
+    <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
     <div class="container">
@@ -16,78 +16,81 @@
         </h3>
       </div>
       <div class="Menu Resources">
-        <div class="row">
-          <div class="column"><h3 style="font-size:20px;">Gender</h3></div>
-          <div class="column">
-            <label for="male">Male</label>
-            <input name="gender" id="male" type="radio" />
+        <form method="POST" action="/about" id="about" name="about">
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">Gender</h3></div>
+            <div class="column">
+              <label for="male">Male</label>
+              <input name="gender" id="male" value="male" type="radio" />
+            </div>
+            <div class="column">
+              <label for="female">Female</label>
+              <input name="gender" id="female" value="F" type="radio" />
+            </div>
           </div>
-          <div class="column">
-            <label for="female">Female</label>
-            <input name="gender" id="female" type="radio" />
+          <div class="row">
+            <div class="column">
+              <h3 style="font-size:20px;">18+ Years Old?</h3>
+            </div>
+            <div class="column">
+              <label for="yes">Yes</label>
+              <input name="age" id="yes" value="18Y" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label> 
+              <input name="age" id="no" value="18N" type="radio" />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <h3 style="font-size:20px;">18+ Years Old?</h3>
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">Veteran?</h3></div>
+            <div class="column">
+              <label for="yes">Yes</label>
+              <input name="veteran" id="yes" value="VetY" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="veteran" id="no" value="VetN" type="radio" />
+            </div>
           </div>
-          <div class="column">
-            <label for="yes">Yes</label>
-            <input name="age" id="yes" type="radio" />
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">Disabled?</h3></div>
+            <div class="column">
+              <label for="yes">Yes</label>
+              <input name="disabled" id="yes" value="DisY" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="disabled" id="no" value="DisN" type="radio" />
+            </div>
           </div>
-          <div class="column">
-            <label for="no">No</label> <input name="age" id="no" type="radio" />
+          <div class="row">
+            <div class="column"><h3 style="font-size:20px;">Pets?</h3></div>
+            <div class="column">
+              <label for="yes">Yes</label>
+              <input name="pets" id="yes" value="PetY" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="pets" id="no" value="PetN" type="radio" />
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="column"><h3 style="font-size:20px;">Veteran?</h3></div>
-          <div class="column">
-            <label for="yes">Yes</label>
-            <input name="veteran" id="yes" type="radio" />
+          <div class="row">
+            <div class="column">
+              <h3 style="font-size:20px;">Are You With Family?</h3>
+            </div>
+            <div class="column">
+              <label for="yes">Yes</label>
+              <input name="family" id="yes" value="FamY" type="radio" />
+            </div>
+            <div class="column">
+              <label for="no">No</label>
+              <input name="family" id="no" value="FamN" type="radio" />
+            </div>
           </div>
-          <div class="column">
-            <label for="no">No</label>
-            <input name="veteran" id="no" type="radio" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="column"><h3 style="font-size:20px;">Disabled?</h3></div>
-          <div class="column">
-            <label for="yes">Yes</label>
-            <input name="disabled" id="yes" type="radio" />
-          </div>
-          <div class="column">
-            <label for="no">No</label>
-            <input name="disabled" id="no" type="radio" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="column"><h3 style="font-size:20px;">Pets?</h3></div>
-          <div class="column">
-            <label for="yes">Yes</label>
-            <input name="pets" id="yes" type="radio" />
-          </div>
-          <div class="column">
-            <label for="no">No</label>
-            <input name="pets" id="no" type="radio" />
-          </div>
-        </div>
-        <div class="row">
-          <div class="column">
-            <h3 style="font-size:20px;">Are You With Family?</h3>
-          </div>
-          <div class="column">
-            <label for="yes">Yes</label>
-            <input name="family" id="yes" type="radio" />
-          </div>
-          <div class="column">
-            <label for="no">No</label>
-            <input name="family" id="no" type="radio" />
-          </div>
-        </div>
-        <button style="background-color: #2dd844" type="button" id="continue">
-          Continue
-        </button>
+          <button style="background-color: #2dd844" type="submit" id="continue">
+            Continue
+          </button>
+        </form>
       </div>
       <div class="Menu ContactForm">
         <h2 style="text-decoration:underline; font-size:28px;">
