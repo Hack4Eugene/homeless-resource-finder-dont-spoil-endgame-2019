@@ -20,7 +20,6 @@ body {
   grid-column: 1 / span 3;
   text-align: center;
   border: 2px solid white;
-  position: relative;
 }
 .Resources {
   grid-column: 1 / span 2;
