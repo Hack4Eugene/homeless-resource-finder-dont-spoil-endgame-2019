@@ -33,8 +33,8 @@ orgs = db.hmis
 
 class CreateDictionary:
     """
-    A class that creates a dictionary with set keys initialized to None. Provides an easy and streamlined way to create a 
-    dictionary that is in the correct format to be used to search in the MongoDB database. 
+    A class that creates a dictionary with set keys initialized to None. Provides an easy and streamlined way to create a
+    dictionary that is in the correct format to be used to search in the MongoDB database.
     """
     def __init__(self, category1=None, category2=None, city=None, company=None):
         self.cat1 = category1
@@ -62,8 +62,12 @@ class CreateDictionary:
 @app.route("/")
 @app.route("/about", methods=['POST'])
 def aboutForm():
+    return flask.render_template("about.html")
+
+@app.route("/index", methods=['POST'])
+def index():
     """
-    The default page which is a search page that allows the client to send various amounts of information 
+    The default page which is a search page that allows the client to send various amounts of information
     to the server in order to check whether or not the requested resource is in the database. Redirects to
     the results page with the specified parameters.
     """
@@ -82,10 +86,8 @@ def aboutForm():
         # Append any found database entries into an empty list
         orgs_list.append(i)
     print(orgs_list)
-    return flask.render_template("about.html")
-
-#@app.route("/index")
-#def 
+    return flask.render_template("index.html")
+#def
 
 # def get_rating(party_id):
 #    '''
@@ -103,7 +105,7 @@ def aboutForm():
 # @app.route("/api/healthcheck", methods=['GET'])
 # def healthcheck():
 #    '''
-#    API endpoint to check system health. 
+#    API endpoint to check system health.
 #    NOT used by end-users, for developer access only.
 
 #    Input:
@@ -254,12 +256,12 @@ def aboutForm():
 #            city = form.eventCityInput.data
 #            state = form.eventStateInput.data
 #            zipcode = form.eventZipInput.data
-           
+
 #            address = "{}, {}, {} {}".format(street, city, state, zipcode)
 #            eprint("POST address: " + address)
 #            geo_tuple = geocode(address)  # GMS Geocoding using the form address
 #            eprint(geo_tuple)
-           
+
 
 #            # Creating a geometric point which can be displayed on google maps
 #            lat = geo_tuple[0]
@@ -275,8 +277,8 @@ def aboutForm():
 #            response = jsonify({ 'message': 'validation/upload success' })
 #            response.status_code = 200
 #            return redirect('/')
-       
-       
+
+
 #        # Form validation failure, return JSON response
 
 #        else:

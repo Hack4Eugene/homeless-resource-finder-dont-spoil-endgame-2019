@@ -16,7 +16,7 @@
         </h3>
       </div>
       <div class="Menu Resources">
-        <form method="POST" action="/about" id="about" name="about">
+        <form method="POST" action="/index" id="about" name="about">
           <div class="row">
             <div class="column"><h3 style="font-size:20px;">Gender</h3></div>
             <div class="column">
@@ -37,7 +37,7 @@
               <input name="age" id="yes" value="18Y" type="radio" />
             </div>
             <div class="column">
-              <label for="no">No</label> 
+              <label for="no">No</label>
               <input name="age" id="no" value="18N" type="radio" />
             </div>
           </div>
@@ -87,7 +87,12 @@
               <input name="family" id="no" value="FamN" type="radio" />
             </div>
           </div>
-          <button style="background-color: #2dd844" type="submit" id="continue">
+          <button
+            style="background-color: #2dd844"
+            type="submit"
+            id="continue"
+            onclick="window.location.href = 'http://localhost:5000/index';"
+          >
             Continue
           </button>
         </form>
