@@ -68,11 +68,11 @@ class CreateDictionary:
         return self.current_dict
 
 @app.route("/")
-@app.route("/about", methods=['POST'])
+@app.route("/about", methods=['POST', 'GET'])
 def aboutForm():
     return flask.render_template("about.html")
 
-@app.route("/index", methods=['POST'])
+@app.route("/index", methods=['POST', 'GET'])
 def index():
     """
     The default page which is a search page that allows the client to send various amounts of information
@@ -153,6 +153,7 @@ def formatFood(my_list):
 def formatClinics(my_list):
     flask.g.results = []
     count = 0
+
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
         if ("Gender" in i and i['Gender'] == "F"):
