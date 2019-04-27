@@ -210,6 +210,7 @@ def search():
         flask.g.clinic = 1
         formatClinics(data_list)
         return flask.render_template("userselection.html")
+    return flask.render_template("userselection.html")
 
 # def get_rating(party_id):
 #    '''
