@@ -12,13 +12,13 @@
       <div class="Menu Header">
         <h1>About You</h1>
         <h3 style="font-size:24px">
-          Please take a moment to tell us a little about yourself.
+          Please take a moment to tell us a little about yourself. Or continue and see all services in Eugene.
         </h3>
       </div>
       <div class="Menu Resources">
         <form method="POST" action="/index" id="about" name="about">
           <div class="row">
-            <div class="column"><h3 style="font-size:20px;">Gender</h3></div>
+            <div class="column"><h3 style="font-size:20px;">Gender:</h3></div>
             <div class="column">
               <label for="male">Male</label>
               <input name="gender" id="male" value="M" type="radio" />
@@ -26,6 +26,10 @@
             <div class="column">
               <label for="female">Female</label>
               <input name="gender" id="female" value="F" type="radio" />
+            </div>
+            <div class="column">
+              <label for="trans">Transgender</label>
+              <input name="gender" id="trans" value="T" type="radio" />
             </div>
           </div>
           <div class="row">
@@ -101,14 +105,26 @@
         <h2 style="text-decoration:underline; font-size:28px;">
           Emergency Contact Form
         </h2>
-        <a href="#">Contact 1</a> <a href="#">Contact 2</a>
-        <a href="#">Contact 3</a> <br />
+        <label style="color:#ef0b31" for="#EES"
+          ><i>Eugene Emergency Services</i></label
+        >
+        <a id="EES" style="" href="#">
+          <label for="">Phone: </label>(541) 344-8757</a
+        >
+        <a style="font-size:20px;" href="5413448757"
+          ><label for="">Location: </label>1255 Hilyard St, Eugene, OR 97401</a
+        >
         <br />
-        <h2 style="text-decoration:underline; font-size:28px;">
-          Emergency Locations
-        </h2>
-        <a href="#">Location 1</a> <a href="#">Location 2</a>
-        <a href="#">Location 3</a>
+        <br />
+        <label style="color:#ef0b31" for="#SHMC"
+          ><i>Sacred Heart Medical Center Home Health Services</i></label
+        >
+        <a id="SHMC" style="" href="tel:5414617550">
+          <label for="">Phone: </label>(541) 461-7550</a
+        >
+        <a style="font-size:20px;" href="#"
+          ><label for="">Location: </label>677 E 12th Ave, Eugene, OR 97401</a
+        >
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>

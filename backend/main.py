@@ -6,7 +6,7 @@ Core Flask logic for the Nightlife application
 '''
 
 # Python libraries (note: these dependencies are handled through Docker, your local machine may not have these.)
-import json, os, operator
+import json, os, operator, datetime
 #from utils import *
 from flask import Flask, request, redirect, url_for, flash, abort, jsonify, render_template, session
 #from models import db, Event, Review
@@ -31,6 +31,7 @@ db = client.homelessData
 # Get the MongoDB database collection we are using
 # data = db.hmis
 data = db.test
+data_out = db.test_out
 
 class CreateDictionary:
     """
@@ -191,6 +192,10 @@ def search():
     '''
     button = flask.request.form.get("sub")
     data_list = []
+    out_dict = flask.session["current_dict"].copy()
+    out_dict["Service"] = button
+    out_dict["Time"] = str(datetime.datetime.now())
+    x = data_out.insert_one(out_dict)
     for key, value in list(flask.session["current_dict"].items()):
         if (key == "Veteran" and value == "Y"):
             del flask.session["current_dict"]['Veteran']

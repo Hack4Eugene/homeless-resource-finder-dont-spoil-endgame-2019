@@ -32,7 +32,6 @@ body {
   grid-column: 1 / span 3;
   text-align: center;
   border: 2px solid white;
-  position: relative;
 }
 .Resources {
   grid-column: 1 / span 2;
@@ -86,4 +85,12 @@ button {
 }
 #filters {
   margin-top: 20px;
+<<<<<<< HEAD
 }
+=======
+}
+
+.Resources label {
+  font-size: 22px;
+}
+>>>>>>> 1e85f1419ff2d84c92fa19c7d6cee7ba458699a3
