@@ -122,8 +122,8 @@ def formatBed(my_list):
             del flask.g.results[count]
             continue
         if ("Name" in i):
-            if (len(i["Name"]) > 28):
-                flask.g.results[count]['Name'] += str(i["Name"][:28] + "...")
+            if (len(i["Name"]) > 36):
+                flask.g.results[count]['Name'] += str(i["Name"][:36] + "...")
             elif (len(i["Name"]) > 0 and flask.g.results[count]['Name'] != ""):
                 flask.g.results[count]['Name'] += str(i["Name"])
             else:
@@ -149,8 +149,8 @@ def formatFood(my_list):
             del flask.g.results[count]
             continue
         if ("Name" in i and i['Name'] != None):
-            if (len(i["Name"]) > 28):
-                flask.g.results[count]["Name"] = str(i["Name"][:28] + "...")
+            if (len(i["Name"]) > 36):
+                flask.g.results[count]["Name"] = str(i["Name"][:36] + "...")
             else:
                 flask.g.results[count]['Name'] = str(i["Name"])
         if ("Address" in i and i['Address'] != None):
@@ -174,8 +174,8 @@ def formatClinics(my_list):
             del flask.g.results[count]
             continue
         if ("Name" in i and i['Name'] != None):
-            if (len(i["Name"]) > 28):
-                flask.g.results[count]["Name"] = str(i["Name"][:28] + "...")
+            if (len(i["Name"]) > 36):
+                flask.g.results[count]["Name"] = str(i["Name"][:36] + "...")
             else:
                 flask.g.results[count]['Name'] = str(i["Name"])
         if ("Address" in i and i['Address'] != None):
