@@ -145,7 +145,7 @@ def formatBed(my_list):
             flask.g.results[count]['Restrictions'].append('disabled.png')
         # Keep up-to-date info on available beds and attach it to Name for ease of use
         if ("Beds" in i and i['Beds'] != "N"):
-            flask.g.results[count]['Name'] = str("(" + str(i['Beds']) + ") beds open at ")
+            flask.g.results[count]['Name'] = str(i['Beds'] + " beds open at ")
         else:
             # If there aren't any beds, delete the key and entry. Since we're in the format function for beds
             # it's assumed that the service has beds, so since it doesn't, there's no point displaying it.
@@ -202,7 +202,7 @@ def formatBedEs(my_list):
             flask.g.results[count]['Restrictions'].append('disabled.png')
         # Keep up-to-date info on available beds and attach it to Name for ease of use
         if ("Beds" in i and i['Beds'] != "N"):
-            flask.g.results[count]['Name'] = str("(" + str(i['Beds']) + ") camas abiertas en ")
+            flask.g.results[count]['Name'] = str(str(i['Beds']) + " camas abiertas en ")
         else:
             # If there aren't any beds, delete the key and entry. Since we're in the format function for beds
             # it's assumed that the service has beds, so since it doesn't, there's no point displaying it.
@@ -245,6 +245,8 @@ def formatFood(my_list):
     count = 0
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
+        # Pre-assign the Name value to an empty string for easier parsing and manipulation
+        flask.g.results[count]['Name'] = ""
         if ("Gender" in i and i['Gender'] == "F"):
             flask.g.results[count]['Restrictions'].append('female.png')
         if ("Veteran" in i and i['Veteran'] == "Y"):
@@ -254,10 +256,24 @@ def formatFood(my_list):
         if ("Food" in i and i["Food"] == "N"):
             del flask.g.results[count]
             continue
-        if ("Name" in i and i['Name'] != None):
+        if ("Meal" in i and i['Meal'] != None):
+            flask.g.results[count]['Name'] = str("Meals " + i['Meal'] + " at ")
+        else:
+            # If there aren't any beds, delete the key and entry. Since we're in the format function for beds
+            # it's assumed that the service has beds, so since it doesn't, there's no point displaying it.
+            del flask.g.results[count]
+            continue
+        # If the dictionary has a name: check if it's too long
+        if ("Name" in i):
+            # If it is, add an ellipse to the end
             if (len(i["Name"]) > 36):
-                flask.g.results[count]["Name"] = str(i["Name"][:36] + "...")
+                flask.g.results[count]['Name'] += str(i["Name"][:36] + "...")
+            # If not, then keep the name as it is (Already have part of a string in this value so we can +=)
+            elif (len(i["Name"]) > 0 and flask.g.results[count]['Name'] != ""):
+                flask.g.results[count]['Name'] += str(i["Name"])
+            # None of the string is formed yet, so we have to create a new one
             else:
+                # Put a name into results for display on the site
                 flask.g.results[count]['Name'] = str(i["Name"])
         if ("Address" in i and i['Address'] != None):
             flask.g.results[count]['Address'] = i["Address"]
