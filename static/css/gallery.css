@@ -12,8 +12,47 @@ input {
 
 body {
   margin: 40px;
-  background-color: #357df2;
+  background-color: #93d2f9;
 }
+
+img.bg {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+@media screen and (max-width: 1024px) {
+  img.bg {
+    left: 50%;
+    margin-left: -512px;
+  }
+}
+
+h4 {
+  color: #444;
+}
+
+h3 {
+  color: #444;
+}
+
+h2 {
+  color: #444;
+}
+
+h1 {
+  color: #444;
+}
+
+.Menu label {
+  color: #444;
+}
+
 .container {
   display: grid;
   grid-gap: 5px;
@@ -22,7 +61,7 @@ body {
   color: #444;
 }
 .Menu {
-  background-color: #444;
+  background-color: white;
   color: #fff;
   border-radius: 5px;
   padding: 10px;
@@ -59,7 +98,7 @@ button {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
   font-size: 24px;
-  color: white;
+  color: #444;
   display: block;
 }
 .ContactForm a:hover {
@@ -75,6 +114,7 @@ button {
 .results p {
   font-size: 18px;
   margin-left: 20px;
+  display: ;
 }
 .results a {
   font-size: 22px;
@@ -84,14 +124,21 @@ button {
 .results_backdrop {
   text-align: left;
   padding: 10px;
-
   border: 1px white;
   border-radius: 5px;
   width: 500px;
 }
-#filters {
+.filters {
   margin-top: 20px;
   margin-left: 20px;
+}
+
+@media screen and (max-width: 500px) {
+  .filters img {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 .Resources label {

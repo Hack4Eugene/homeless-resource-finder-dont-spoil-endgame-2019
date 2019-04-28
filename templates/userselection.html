@@ -10,13 +10,18 @@
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>Homeless Resource Finder</h1>
+        <h1>Available Resources</h1>
         <h3>Eugene, OR</h3>
         <a
           style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
           href="http://localhost:5000/index"
           >Return Home</a
         >
+        <img
+          style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
+          src="../static/images/lanecounty.png"
+          alt=""
+        />
       </div>
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
@@ -29,24 +34,24 @@
             >
               {{results.Name}}
             </h4>
-            <p>Address: {{results.Address}}</p>
+            <p style="color:#444;">Address: {{results.Address}}</p>
             <a href="tel:{{results.Phone}}">Phone: {{results.Phone}}</a>
           </div>
           <br />
-          <label style="margin-left:20px; float:left;" for="#filters"
+          <label style="margin-left:20px;" for="#filters"
             >Accessibility:
           </label>
-          <div id="filters">
+          <div class="filters">
             {%for img in results.Restrictions%}
             <img
-              style="height:100px; width:100px; margin-left: 10px; float:left;"
+              style="height:100px; width:100px; margin-left: 10px;"
               src="./static/images/{{img}}"
               alt=""
             />
             {% endfor %}
           </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
       <div class="Menu ContactForm">
         <h2 style="text-decoration:underline; font-size:28px;">
