@@ -307,6 +307,60 @@ def search():
         return flask.render_template("userselection.html")
     return flask.render_template("userselection.html")
 
+@app.route("/search_es", methods=['POST'])
+def search_es():
+    '''
+    Checks through the session dictionary to make sure we are passing it the values that needs to be
+    displayed on the HTML page.
+    '''
+    # Get the value of the button press in index.html
+    button = flask.request.form.get("sub")
+    data_list = []
+    out_dict = flask.session["current_dict"].copy()
+    # Send user information to the database
+    out_dict["Service"] = button
+    out_dict["Time"] = str(datetime.datetime.now())
+    # Search through the user's dictionary and get rid of all the unnecessary information so that we show
+    # all the values the user needs (ie. if a veteran: show all veteran and nonveteran services, but if not
+    # a veteran, only show nonveteran services)
+    x = data_out.insert_one(out_dict)
+    # Clean up the dictionary
+    for key, value in list(flask.session["current_dict"].items()):
+        if (key == "Veteran" and value == "Y"):
+            del flask.session["current_dict"]['Veteran']
+        if (key == "Disabled" and value == "Y"):
+            del flask.session["current_dict"]['Disabled']
+        if (key == "Pets" and value == "N"):
+            del flask.session["current_dict"]['Pets']
+        if (key == "Family" and value == "Y"):
+            del flask.session["current_dict"]['Family']
+        if (key == "Gender" and value == "F"):
+            del flask.session["current_dict"]['Gender']
+        if (key == "Age" and value == "Y"):
+            del flask.session["current_dict"]['Age']
+    # Clean up the user's dictionary
+    for k, v in list(flask.session["current_dict"].items()):
+            if v == None:
+                del flask.session["current_dict"][k]
+    # Make a new dictionary list
+    for i in data.find(flask.session["current_dict"]):
+        data_list.append(i)
+    # If the user wants information on bedding, format the dictionary for bedding info and render the next page
+    # The same goes for food and clinics
+    if (button == "beds"):
+        flask.g.request = "Bedding"
+        formatBed(data_list)
+        return flask.render_template("userselection_es.html")
+    elif (button == "food"):
+        flask.g.request = "Food"
+        formatFood(data_list)
+        return flask.render_template("userselection_es.html")
+    elif (button == "clinic"):
+        flask.g.request = "Clinic"
+        formatClinics(data_list)
+        return flask.render_template("userselection_es.html")
+    return flask.render_template("userselection_es.html")
+
 @app.route("/ees", methods=['GET'])
 def eesMap():
     return flask.render_template("ees.html")
