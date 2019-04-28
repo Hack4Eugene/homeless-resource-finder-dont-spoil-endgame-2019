@@ -297,6 +297,14 @@ def emMap():
 def sheltercareMap():
     return flask.render_template("sheltercare.html")
 
+@app.route("/ws", methods=['GET'])
+def womensspaceMap():
+    return flask.render_template("ws.html")
+
+@app.route("/ffl", methods=['GET'])
+def fflMap():
+    return flask.render_template("ffl.html")
+
 if __name__ == '__main__':
     app.secret_key='secret123'
     app.run(debug=True)
