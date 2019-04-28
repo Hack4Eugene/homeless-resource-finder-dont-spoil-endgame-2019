@@ -285,6 +285,18 @@ def search():
 def eesMap():
     return flask.render_template("ees.html")
 
+@app.route("/css", methods=['GET'])
+def cssMap():
+    return flask.render_template("css.html")
+
+@app.route("/em", methods=['GET'])
+def emMap():
+    return flask.render_template("em.html")
+
+@app.route("/sheltercare", methods=['GET'])
+def sheltercareMap():
+    return flask.render_template("sheltercare.html")
+
 if __name__ == '__main__':
     app.secret_key='secret123'
     app.run(debug=True)
