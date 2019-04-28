@@ -119,7 +119,7 @@ def index_es():
     # Save the new dictionary in its own session variable for easier access
     flask.session["current_dict"] = diction.get_dictionary()
     # Render the next page's template
-    return flask.render_template("index.html")
+    return flask.render_template("index_es.html")
 
 def formatBed(my_list):
     '''
