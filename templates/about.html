@@ -10,21 +10,27 @@
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>Eugene Homeless Resource Finder
-        <h1 style="font-size:24px">
-          Fill out the form for personalized results OR
+        <h1>About You</h1>
+        <p style="color:#444; padding-bottom:0px;">
+          Fill out the form for personalized results <b>OR</b>
+        </p>
         <form method="POST" action="/index" id="about" name="about">
           <button
-              style="background-color: #2dd844; margin-top:25px;"
-              type="submit"
-              id="continue"
-              onclick="window.location.href = 'http://localhost:5000/index';"
-            >
-              Continue
-            </button>
-          </form>
-        </h3>
-        
+            style="background-color: #2dd844; margin-top:5px;"
+            type="submit"
+            id="continue"
+            onclick="window.location.href = 'http://localhost:5000/index';"
+          >
+            Continue
+          </button>
+        </form>
+        <button
+          style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
+          onclick="window.location.href='/mainmap'"
+        >
+          Map All Results
+        </button>
+
         <img
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
           src="../static/images/lanecounty.png"
@@ -42,107 +48,110 @@
       <div class="Menu Resources">
         <form method="POST" action="/index" id="about" name="about">
           <div class="row">
-            <div class="column"><h3 style="font-size:20px;">Gender:</div>
+            <div class="column"><h3 style="font-size:20px;">Gender:</h3></div>
             <div class="column">
-              <label class="radcont">Male
-              <input name="gender" id="male" value="M" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Male <input name="gender" id="male" value="M" type="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+
+            <div class="column">
+              <label class="radcont"
+                >Female
+                <input name="gender" id="female" value="F" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">Female
-              <input name="gender" id="female" value="F" type="radio" />
-              <span class="checkmark"></span>
-              </label>
-            </div>
-            <div class="column">
-              <label class="radcont">Transgender
-              <input name="gender" id="trans" value="T" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Transgender
+                <input name="gender" id="trans" value="T" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
             <div class="column">
               <h3 style="font-size:20px;">18+ Years Old?</h3>
             </div>
             <div class="column">
-              <label class="radcont">Yes
-              <input name="age" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Yes <input name="age" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="age" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="age" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
             <div class="column"><h3 style="font-size:20px;">Veteran?</h3></div>
             <div class="column">
-              <label class="radcont">Yes
-              <input name="veteran" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Yes <input name="veteran" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="veteran" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="veteran" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
             <div class="column"><h3 style="font-size:20px;">Disabled?</h3></div>
             <div class="column">
-              <label class="radcont">Yes
-              <input name="disabled" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Yes <input name="disabled" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="disabled" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="disabled" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
             <div class="column"><h3 style="font-size:20px;">Pets?</h3></div>
             <div class="column">
-              <label class="radcont">Yes
-              <input name="pets" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Yes <input name="pets" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="pets" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="pets" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
             <div class="column">
               <h3 style="font-size:20px;">Are You With Family?</h3>
             </div>
             <div class="column">
-              <label class="radcont">Yes
-              <input name="family" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Yes <input name="family" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="family" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="family" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
