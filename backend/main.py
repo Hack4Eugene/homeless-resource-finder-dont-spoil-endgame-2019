@@ -250,6 +250,12 @@ def search():
         return flask.render_template("userselection.html")
     return flask.render_template("userselection.html")
 
+
+
+@app.route("/ees", methods=['GET'])
+def eesMap():
+    return flask.render_template("ees.html")
+
 # def get_rating(party_id):
 #    '''
 #    Helper function used to get the average rating from the Rating model given a party id.
