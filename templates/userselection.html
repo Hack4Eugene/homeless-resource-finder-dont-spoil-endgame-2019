@@ -36,7 +36,8 @@
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
         {% if g.empty == True %}
         <h4 style="text-align:center; padding: 10px;">
-          There Are Currently No Results For Your Request. Please Try Expanding Your Search.
+          There Are Currently No Results For Your Request. Please Try Expanding
+          Your Search.
         </h4>
         {% endif %}
         <div style="word-wrap: break-word;" class="results_backdrop">
@@ -44,9 +45,9 @@
 
           <div class="results">
             <h4
-              style="font-size:22px; margin-left: 20px; margin-top:5; margin-bottom:0; text-decoration:underline; word-wrap:break-word; white-space: normal;"
+              style="font-size:22px; margin-left: 20px; margin-top:5; margin-bottom:0; word-wrap:break-word; white-space: normal;"
             >
-              {{results.Name}}
+              <b>{{results.Name}}</b>
             </h4>
             <a
               style="color:#444;"
@@ -74,7 +75,7 @@
             />
             {% endfor %}
           </div>
-          <hr>
+          <hr />
           {% endfor %}
         </div>
       </div>
