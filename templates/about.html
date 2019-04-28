@@ -5,25 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homeless Resource Finder</title>
+    <link rel="icon" href="../static/images/favicon.png">
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>Eugene Homeless Resource Finder</h1>
+        <h1>Homeless Resource Finder</h1>
         <h1 style="font-size:24px">
           Fill out the form for personalized results OR
+        </h1>
         <form method="POST" action="/index" id="about" name="about">
           <button
-              style="background-color: #2dd844; margin-top:25px;"
-              type="submit"
-              id="continue"
-              onclick="window.location.href = 'http://localhost:5000/index';"
-            >
-              Continue
-            </button>
-          </form>
-        </h1>
+            style="background-color: #2dd844; margin-top:5px;"
+            type="submit"
+            id="continue"
+            onclick="window.location.href = 'http://localhost:5000/index';"
+          >
+            Continue
+          </button>
+        </form>
+        <button
+          style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
+          onclick="window.location.href='/mainmap'"
+        >
+          Map All Results
+        </button>
+        <button
+          style="position:absolute; top:10px; left:215px; font-size:24px; color:white; background-color:white; padding: 4px; border-radius:5px;"
+          onclick="window.location.href='/about_es'"
+        >
+          <img
+            style="height:23px; width:28px;"
+            src="../static/images/Espanol.png"
+            alt=""
+          />
+        </button>
+
         <img
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
           src="../static/images/lanecounty.png"

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Buscador de recursos para personas sin hogar</title>
+    <link rel="icon" href="../static/images/favicon.png">
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
@@ -13,8 +14,8 @@
         <h1>Eugene Buscador de recursos para personas sin hogar</h1>
         <h1 style="font-size:24px">
           Rellene el formulario para resultados personalizados O
-        <form method="POST" action="/index" id="about" name="about">
-          <button
+          <form method="POST" action="/index" id="about" name="about">
+            <button
               style="background-color: #2dd844; margin-top:25px;"
               type="submit"
               id="continue"
@@ -24,6 +25,22 @@
             </button>
           </form>
         </h1>
+        <button
+          style="position:absolute; top:10px; left:215px; font-size:24px; color:white; background-color:white; padding: 4px; border-radius:5px;"
+          onclick="window.location.href='/about'"
+        >
+          <img
+            style="height:23px; width:28px;"
+            src="../static/images/english.png"
+            alt=""
+          />
+        </button>
+        <button
+          style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
+          onclick="window.location.href='/mainmap'"
+        >
+          Map All Results
+        </button>
         <img
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
           src="../static/images/lanecounty.png"
@@ -43,105 +60,114 @@
           <div class="row">
             <div class="column"><h3 style="font-size:20px;">Género:</h3></div>
             <div class="column">
-              <label class="radcont">Masculino
-              <input name="gender" id="male" value="M" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Masculino
+                <input name="gender" id="male" value="M" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">Hembra
-              <input name="gender" id="female" value="F" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Hembra
+                <input name="gender" id="female" value="F" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">Transgénero
-              <input name="gender" id="trans" value="T" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Transgénero
+                <input name="gender" id="trans" value="T" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
             <div class="column">
               <h3 style="font-size:20px;">¿18+ años de edad?</h3>
             </div>
             <div class="column">
-              <label class="radcont">Sí
-              <input name="age" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Sí <input name="age" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="age" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
-              </label>
-            </div>
-          </div>
-          <hr>
-          <div class="row">
-            <div class="column"><h3 style="font-size:20px;">¿Veterano?</h3></div>
-            <div class="column">
-              <label class="radcont">Sí
-              <input name="veteran" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
-              </label>
-            </div>
-            <div class="column">
-              <label class="radcont">No
-              <input name="veteran" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="age" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
-            <div class="column"><h3 style="font-size:20px;">¿Discapacitado?</h3></div>
             <div class="column">
-              <label class="radcont">Sí
-              <input name="disabled" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <h3 style="font-size:20px;">¿Veterano?</h3>
+            </div>
+            <div class="column">
+              <label class="radcont"
+                >Sí <input name="veteran" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="disabled" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="veteran" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
-            <div class="column"><h3 style="font-size:20px;">¿Mascotas?</h3></div>
             <div class="column">
-              <label class="radcont">Sí
-              <input name="pets" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <h3 style="font-size:20px;">¿Discapacitado?</h3>
+            </div>
+            <div class="column">
+              <label class="radcont"
+                >Sí <input name="disabled" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="pets" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="disabled" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
-          <hr>
+          <hr />
           <div class="row">
             <div class="column">
-              <h3 style="font-size:20px;">¿Estás con la familia?</h3>
+              <h3 style="font-size:20px;">¿Mascotas?</h3>
             </div>
             <div class="column">
-              <label class="radcont">Sí
-              <input name="family" id="yes" value="Y" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >Sí <input name="pets" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
             <div class="column">
-              <label class="radcont">No
-              <input name="family" id="no" value="N" type="radio" />
-              <span class="checkmark"></span>
+              <label class="radcont"
+                >No <input name="pets" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+          <hr />
+          <div class="row">
+            <div class="column">
+              <h3 style="font-size:20px;">¿Con Su Familia?</h3>
+            </div>
+            <div class="column">
+              <label class="radcont"
+                >Sí <input name="family" id="yes" value="Y" type="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+            <div class="column">
+              <label class="radcont"
+                >No <input name="family" id="no" value="N" type="radio" />
+                <span class="checkmark"></span>
               </label>
             </div>
           </div>
@@ -184,7 +210,9 @@
         <hr />
 
         <label style="color:#ef0b31" for="#SHMC"
-          ><i>Centro Médico Sagrado Corazón Servicios de Salud en el Hogar</i></label
+          ><i
+            >Centro Médico Sagrado Corazón Servicios de Salud en el Hogar</i
+          ></label
         >
         <a id="SHMC" style="" href="tel:5414617550">
           <label for="">Teléfono: </label>(541) 461-7550

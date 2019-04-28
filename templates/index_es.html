@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Buscador de recursos para personas sin hogar</title>
+    <link rel="icon" href="../static/images/favicon.png">
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body onload="getLocation()">
@@ -17,6 +18,7 @@
           href="http://localhost:5000/about_es"
           >Reiniciar</a
         >
+
         <span class="btnsize">
           <img
             id="zoom"
@@ -25,6 +27,16 @@
             alt=""
           />
         </span>
+        <button
+          style="position:absolute; top:10px; left:115px; font-size:24px; color:white; background-color:white; padding: 4px; border-radius:5px;"
+          onclick="window.location.href='/index'"
+        >
+          <img
+            style="height:23px; width:28px;"
+            src="../static/images/english.png"
+            alt=""
+          />
+        </button>
         <img
           id="lanecounty"
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
@@ -77,7 +89,8 @@
             </button>
           </div>
           <p style="color: #444;">
-            Seleccione una opción para conocer los recursos relacionados en su área.
+            Seleccione una opción para conocer los recursos relacionados en su
+            área.
           </p>
         </form>
       </div>
@@ -109,7 +122,9 @@
         <hr />
 
         <label style="color:#ef0b31" for="#SHMC"
-          ><i>Centro Médico Sagrado Corazón Servicios de Salud en el Hogar</i></label
+          ><i
+            >Centro Médico Sagrado Corazón Servicios de Salud en el Hogar</i
+          ></label
         >
         <a id="SHMC" style="" href="tel:5414617550">
           <label for="">Teléfono: </label>(541) 461-7550
