@@ -10,27 +10,20 @@
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>About You</h1>
-        <p style="color:#444; padding-bottom:0px;">
-          Fill out the form for personalized results <b>OR</b>
-        </p>
+        <h1>Eugene Homeless Resource Finder</h1>
+        <h1 style="font-size:24px">
+          Fill out the form for personalized results OR
         <form method="POST" action="/index" id="about" name="about">
           <button
-            style="background-color: #2dd844; margin-top:5px;"
-            type="submit"
-            id="continue"
-            onclick="window.location.href = 'http://localhost:5000/index';"
-          >
-            Continue
-          </button>
-        </form>
-        <button
-          style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
-          onclick="window.location.href='/mainmap'"
-        >
-          Map All Results
-        </button>
-
+              style="background-color: #2dd844; margin-top:25px;"
+              type="submit"
+              id="continue"
+              onclick="window.location.href = 'http://localhost:5000/index';"
+            >
+              Continue
+            </button>
+          </form>
+        </h1>
         <img
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
           src="../static/images/lanecounty.png"
