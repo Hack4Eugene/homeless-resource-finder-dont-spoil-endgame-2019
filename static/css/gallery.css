@@ -71,12 +71,14 @@ h1 {
   padding: 10px;
   font-size: 150%;
 }
+
 .Header {
   position: relative;
   grid-column: 1 / span 3;
   text-align: center;
   border: 2px solid white;
 }
+
 .Resources {
   grid-column: 1 / span 2;
   grid-row: 2;
@@ -118,19 +120,21 @@ button {
 .results p {
   font-size: 18px;
   margin-left: 20px;
-  display: ;
+  display: block;
 }
 .results a {
   font-size: 22px;
   margin-left: 20px;
   color: green;
 }
+
 .results_backdrop {
   text-align: left;
   padding: 10px;
   border: 1px white;
   border-radius: 5px;
-  width: 550px;
+  width: 100%;
+  margin-right: 20px;
 }
 .filters {
   margin-top: 20px;
@@ -200,6 +204,7 @@ button {
 
 .Resources label {
   font-size: 22px;
+  margin-left: 10px;
 }
 
 #map {
