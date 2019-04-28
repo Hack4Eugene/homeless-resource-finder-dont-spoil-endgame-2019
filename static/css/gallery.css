@@ -2,6 +2,10 @@ html {
   font-size: 100%;
 }
 
+#map {
+  height: 100%;
+}
+
 span {
   cursor: pointer;
 }
@@ -85,12 +89,8 @@ button {
 }
 #filters {
   margin-top: 20px;
-<<<<<<< HEAD
-}
-=======
 }
 
 .Resources label {
   font-size: 22px;
 }
->>>>>>> 1e85f1419ff2d84c92fa19c7d6cee7ba458699a3
