@@ -10,10 +10,20 @@
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>Acerca de ti</h1>
-        <h3 style="font-size:24px">
-           Tómese un momento para contarnos un poco sobre usted (o presione continuar ahora)
-        </h3>
+        <h1>Eugene Buscador de recursos para personas sin hogar</h1>
+        <h1 style="font-size:24px">
+          Rellene el formulario para resultados personalizados O
+        <form method="POST" action="/index" id="about" name="about">
+          <button
+              style="background-color: #2dd844; margin-top:25px;"
+              type="submit"
+              id="continue"
+              onclick="window.location.href = 'http://localhost:5000/index_es';"
+            >
+              Continue
+            </button>
+          </form>
+        </h1>
         <img
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
           src="../static/images/lanecounty.png"
