@@ -140,6 +140,9 @@ button {
   margin-top: 20px;
   margin-left: 20px;
 }
+.logo-image {
+  height:64px;
+}
 .radcont {
   display: block;
   position: absolute;
