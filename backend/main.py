@@ -259,8 +259,8 @@ def formatFood(my_list):
         if ("Meal" in i and i['Meal'] != None):
             flask.g.results[count]['Name'] = str("Meals " + i['Meal'] + " at ")
         else:
-            # If there aren't any beds, delete the key and entry. Since we're in the format function for beds
-            # it's assumed that the service has beds, so since it doesn't, there's no point displaying it.
+            # If there aren't any meals, delete the key and entry. Since we're in the format function for meals
+            # it's assumed that the service has meals, so since it doesn't, there's no point displaying it.
             del flask.g.results[count]
             continue
         # If the dictionary has a name: check if it's too long
