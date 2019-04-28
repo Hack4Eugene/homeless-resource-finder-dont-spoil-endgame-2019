@@ -106,6 +106,8 @@ def formatBed(my_list):
     Formats the list into a usable form for the HTML
     '''
     flask.g.results = []
+    flask.g.empty = False
+
     count = 0
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
@@ -132,10 +134,18 @@ def formatBed(my_list):
             flask.g.results[count]['Address'] = i["Address"]
         if ("Phone" in i and i['Phone'] != None):
             flask.g.results[count]['Phone'] = i["Phone"]
+
+        if len(flask.g.results[count]["Restrictions"]) == 0: #Check if there are any reservations on who can use this clinic
+            flask.g.results[count]["Restrictions"].append(True)
         count += 1
+
+    if len(flask.g.results) == 0:
+        flask.g.empty = True
+
 
 def formatFood(my_list):
     flask.g.results = []
+    flask.g.empty = False
     count = 0
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
@@ -157,10 +167,17 @@ def formatFood(my_list):
             flask.g.results[count]['Address'] = i["Address"]
         if ("Phone" in i and i['Phone'] != None):
             flask.g.results[count]['Phone'] = i["Phone"]
+
+        if len(flask.g.results[count]["Restrictions"]) == 0: #Check if there are any reservations on who can use this clinic
+            flask.g.results[count]["Restrictions"].append(True)
         count += 1
+
+    if len(flask.g.results) == 0:
+        flask.g.empty = True
 
 def formatClinics(my_list):
     flask.g.results = []
+    flask.g.empty = False;
     count = 0
     for i in my_list:
         flask.g.results.append({"Restrictions":[]})
@@ -182,7 +199,12 @@ def formatClinics(my_list):
             flask.g.results[count]['Address'] = i["Address"]
         if ("Phone" in i and i['Phone'] != None):
             flask.g.results[count]['Phone'] = i["Phone"]
+        if len(flask.g.results[count]["Restrictions"]) == 0: #Check if there are any reservations on who can use this clinic
+            flask.g.results[count]["Restrictions"].append(True)
         count += 1
+
+    if len(flask.g.results) == 0:
+        flask.g.empty = True
 
 @app.route("/search", methods=['POST'])
 def search():
@@ -215,15 +237,15 @@ def search():
     for i in data.find(flask.session["current_dict"]):
         data_list.append(i)
     if (button == "beds"):
-        flask.g.bed = 1
+        flask.g.request = "Bedding"
         formatBed(data_list)
         return flask.render_template("userselection.html")
     elif (button == "food"):
-        flask.g.food = 1
+        flask.g.request = "Food"
         formatFood(data_list)
         return flask.render_template("userselection.html")
     elif (button == "clinic"):
-        flask.g.clinic = 1
+        flask.g.request = "Clinic"
         formatClinics(data_list)
         return flask.render_template("userselection.html")
     return flask.render_template("userselection.html")

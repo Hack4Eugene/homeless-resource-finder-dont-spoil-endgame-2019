@@ -10,7 +10,7 @@
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>Available Resources</h1>
+        <h1>Available {{g.request}} Resources Near You</h1>
         <h3>Eugene, OR</h3>
         <a
           style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
@@ -25,6 +25,12 @@
       </div>
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
+        {% if g.empty == True %}
+        <h4 style="text-align:center; padding: 10px;">
+          There Are Currently No Results For Your Request. Please Try Again
+          Later.
+        </h4>
+        {% endif %}
         <div class="results_backdrop">
           {% for results in g.results %}
 
@@ -41,8 +47,13 @@
           <label style="margin-left:20px;" for="#filters"
             >Accessibility:
           </label>
+
           <div class="filters">
-            {%for img in results.Restrictions%}
+            {% if results.Restrictions[0] == True %}
+            <p style="color:#444; font-size:18px;">
+              This Service is Accessible to All
+            </p>
+            {% endif %} {%for img in results.Restrictions%}
             <img
               style="height:100px; width:100px; margin-left: 10px;"
               src="./static/images/{{img}}"
@@ -63,11 +74,19 @@
           ><i>Eugene Emergency Services</i></label
         >
         <a id="EES" style="" href="#">
-          <label for="">Phone: </label>(541) 344-8757</a
-        >
+          <label for="">Phone: </label>(541) 344-8757
+          <img
+            style="height:7%; width:7%;"
+            src="../static/images/phone_icon.png"
+            alt=""
+        /></a>
         <a style="font-size:20px;" href="5413448757"
-          ><label for="">Location: </label>1255 Hilyard St, Eugene, OR 97401</a
-        >
+          ><label for="">Location: </label>1255 Hilyard St, Eugene, OR 97401
+          <img
+            style="height:7%; width:7%;"
+            src="../static/images/location_dopplar.png"
+            alt=""
+        /></a>
 
         <!-- IDEA: Sacred Heart Helpline Contact Form -->
         <br />
@@ -76,11 +95,20 @@
           ><i>Sacred Heart Medical Center Home Health Services</i></label
         >
         <a id="SHMC" style="" href="tel:5414617550">
-          <label for="">Phone: </label>(541) 461-7550</a
-        >
+          <label for="">Phone: </label>(541) 461-7550
+          <img
+            style="height:7%; width:7%;"
+            src="../static/images/phone_icon.png"
+            alt=""
+          />
+        </a>
         <a style="font-size:20px;" href="#"
-          ><label for="">Location: </label>677 E 12th Ave, Eugene, OR 97401</a
-        >
+          ><label for="">Location: </label>677 E 12th Ave, Eugene, OR 97401
+          <img
+            style="height:7%; width:7%;"
+            src="../static/images/location_dopplar.png"
+            alt=""
+        /></a>
 
         <!-- IDEA: Non-Emergency Helpline Contact Form -->
         <br />
@@ -88,11 +116,19 @@
           ><i>Non-Emergency Helpline</i></label
         >
         <a id="NEH" style="" href="#">
-          <label for="">Phone: </label>(541) 555-5555</a
-        >
+          <label for="">Phone: </label>(541) 555-5555
+          <img
+            style="height:7%; width:7%;"
+            src="../static/images/phone_icon.png"
+            alt=""
+        /></a>
         <a style="font-size:20px;" href="5415555555"
-          ><label for="">Location: </label>2232 Coburg Rd, Eugene, OR 97401</a
-        >
+          ><label for="">Location: </label>2232 Coburg Rd, Eugene, OR 97401
+          <img
+            style="height:7%; width:7%;"
+            src="../static/images/location_dopplar.png"
+            alt=""
+        /></a>
         <br />
       </div>
     </div>

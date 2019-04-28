@@ -139,6 +139,12 @@ button {
     display: block;
     text-align: left;
   }
+
+  #lanecounty {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
 
 .Resources label {
