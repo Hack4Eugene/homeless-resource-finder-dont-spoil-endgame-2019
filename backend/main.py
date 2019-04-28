@@ -134,6 +134,8 @@ def formatBed(my_list):
             flask.g.results[count]['Address'] = i["Address"]
         if ("Phone" in i and i['Phone'] != None):
             flask.g.results[count]['Phone'] = i["Phone"]
+        if ("EndpointName" in i and i['EndpointName'] != None):
+            flask.g.results[count]['EndpointName'] = i["EndpointName"]
 
         if len(flask.g.results[count]["Restrictions"]) == 0: #Check if there are any reservations on who can use this clinic
             flask.g.results[count]["Restrictions"].append(True)
@@ -167,6 +169,8 @@ def formatFood(my_list):
             flask.g.results[count]['Address'] = i["Address"]
         if ("Phone" in i and i['Phone'] != None):
             flask.g.results[count]['Phone'] = i["Phone"]
+        if ("EndpointName" in i and i['EndpointName'] != None):
+            flask.g.results[count]['EndpointName'] = i["EndpointName"]
 
         if len(flask.g.results[count]["Restrictions"]) == 0: #Check if there are any reservations on who can use this clinic
             flask.g.results[count]["Restrictions"].append(True)
@@ -201,7 +205,7 @@ def formatClinics(my_list):
             flask.g.results[count]['Phone'] = i["Phone"]
         if ("EndpointName" in i and i['EndpointName'] != None):
             flask.g.results[count]['EndpointName'] = i["EndpointName"]
-            
+
         if len(flask.g.results[count]["Restrictions"]) == 0: #Check if there are any reservations on who can use this clinic
             flask.g.results[count]["Restrictions"].append(True)
         count += 1
