@@ -73,8 +73,34 @@ def aboutForm():
     # Render the template for the home page when the user first goes to the site
     return flask.render_template("about.html")
 
+@app.route("/about_es", methods=['POST', 'GET'])
+def about_es():
+    return flask.render_template("about_es.html")
+
 @app.route("/index", methods=['POST', 'GET'])
 def index():
+    """
+    The default page which is an initial filter page that allows the client to send various amounts of information
+    to the server in order to check whether or not the requested resource is in the database. Redirects to
+    the results page with the specified parameters.
+    """
+    print("entering aboutForm")
+    # Request the information from the webpage based on what the user entered/selected
+    gender = flask.request.form.get("gender")
+    age = flask.request.form.get("age")
+    veteran = flask.request.form.get("veteran")
+    disabled = flask.request.form.get("disabled")
+    pets = flask.request.form.get("pets")
+    family = flask.request.form.get("family")
+    # Create a dictionary object for use in matching it to a database document
+    diction = CreateDictionary(gender, age, veteran, disabled, pets, family)
+    # Save the new dictionary in its own session variable for easier access
+    flask.session["current_dict"] = diction.get_dictionary()
+    # Render the next page's template
+    return flask.render_template("index.html")
+
+@app.route("/index_es", methods=['POST', 'GET'])
+def index_es():
     """
     The default page which is an initial filter page that allows the client to send various amounts of information
     to the server in order to check whether or not the requested resource is in the database. Redirects to

@@ -1,21 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Homeless Resource Finder</title>
+    <title>Buscador de recursos para personas sin hogar</title>
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>Available {{g.request}} Resources Near You</h1>
+        <h1>Disponible {{g.request}} Recursos cerca de usted</h1>
         <h3>Eugene, OR</h3>
         <a
           style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
-          href="http://localhost:5000/index"
-          >Return Home</a
+          href="http://localhost:5000/index_es"
+          >Volver a casa</a
         >
         <img
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
@@ -35,7 +35,7 @@
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
         {% if g.empty == True %}
         <h4 style="text-align:center; padding: 10px;">
-          There Are Currently No Results For Your Request. Please Try Expanding Your Search.
+          Actualmente no hay resultados para su solicitud. Por favor intenta ampliar tu búsqueda.
         </h4>
         {% endif %}
         <div class="results_backdrop">
@@ -50,20 +50,20 @@
             <a
               style="color:#444;"
               href="http://localhost:5000/{{results.EndpointName}}"
-              >Address: {{results.Address}}</a
+              >Dirección: {{results.Address}}</a
             >
             <br />
-            <a href="tel:{{results.Phone}}">Phone: {{results.Phone}}</a>
+            <a href="tel:{{results.Phone}}">Teléfono: {{results.Phone}}</a>
           </div>
           <br />
           <label style="margin-left:20px;" for="#filters"
-            >Accessibility:
+            >Accesibilidad:
           </label>
 
           <div class="filters">
             {% if results.Restrictions[0] == True %}
             <p style="color:#444; font-size:18px;">
-              This Service is Accessible to All
+              Este servicio es accesible para todos
             </p>
             {% endif %} {%for img in results.Restrictions%}
             <img
@@ -135,7 +135,7 @@
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="5415555555"
+        <a style="font-size:20px;" href="http://localhost:5000/ees"
           ><label for="">Ubicación: </label>2232 Coburg Rd, Eugene, OR 97401
           <img
             style="height:7%; width:7%;"
