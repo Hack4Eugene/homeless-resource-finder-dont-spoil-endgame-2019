@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
-    <span class="btnsize">
-      enlarge text
-    </span>
     <div class="container">
       <div class="Menu Header">
         <h1>About You</h1>
@@ -23,6 +20,14 @@
           src="../static/images/lanecounty.png"
           alt=""
         />
+        <span class="btnsize">
+          <img
+            id="zoom"
+            style="width:50px; height:50px; position:absolute; bottom:10px; left:10px;"
+            src="../static/images/zoomin.png"
+            alt=""
+          />
+        </span>
       </div>
       <div class="Menu Resources">
         <form method="POST" action="/index" id="about" name="about">
@@ -180,6 +185,6 @@
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src = "../static/scale.js"> </script>
+    <script type="text/javascript" src="../static/scale.js"></script>
   </body>
 </html>

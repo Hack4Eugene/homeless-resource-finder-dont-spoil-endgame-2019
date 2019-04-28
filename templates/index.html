@@ -8,9 +8,6 @@
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body onload="getLocation()">
-    <span class="btnsize">
-      enlarge text
-    </span>
     <div class="container">
       <div class="Menu Header">
         <h1>Homeless Resource Finder</h1>
@@ -20,6 +17,14 @@
           href="http://localhost:5000/about"
           >Restart</a
         >
+        <span class="btnsize">
+          <img
+            id="zoom"
+            style="width:50px; height:50px; position:absolute; bottom:10px; left:10px;"
+            src="../static/images/zoomin.png"
+            alt=""
+          />
+        </span>
         <img
           id="lanecounty"
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
@@ -145,6 +150,6 @@
       </div>
     </div>
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" src = "../static/scale.js"> </script>
+    <script type="text/javascript" src="../static/scale.js"></script>
   </body>
 </html>
