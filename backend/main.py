@@ -438,6 +438,10 @@ def search_es():
 def eesMap():
     return flask.render_template("ees.html")
 
+@app.route("/shs", methods=['GET'])
+def shsMap():
+    return flask.render_template("shs.html")
+
 @app.route("/css", methods=['GET'])
 def cssMap():
     return flask.render_template("css.html")

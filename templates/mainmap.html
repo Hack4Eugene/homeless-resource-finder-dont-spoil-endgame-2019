@@ -28,6 +28,7 @@
       var sc = {lat: 44.055947, lng: -123.099877};
       var css = {lat: 44.047055, lng: -123.120327};
       var em = {lat: 44.058344, lng: -123.116499};
+      var shs = {lat: 44.046869, lng: -123.082519};
       var ws = {lat: 44.042388, lng: -123.089251};
       //centered map around hotspot of homeless population
       var eug = {lat: 44.049049, lng: -123.094144};
@@ -44,7 +45,7 @@
         var eescontentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Eugene Emergency Services</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Eugene Emergency Services- 1255 Hilyard Street, Eugene</h1>'+
             '<div id="bodyContent">'+
             '<p><b>Eugene Emergency Services</b> provides  <b>emerency services</b>'+
             ' for Everyeone.</p>'+
@@ -67,7 +68,7 @@
         var sheltercarecontentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Sheltercare</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Sheltercare- 499 W. 4th Avenue, Eugene</h1>'+
             '<div id="bodyContent">'+
             '<p><b>Sheltercare</b> provides  <b>Short Term housing,</b>'+
             ' <b>Long Term Housing</b> and a variety of <b>Support Services</b>.</p>'+
@@ -91,7 +92,7 @@
         var csscontentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Community Supported Shelters</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Community Supported Shelters- 1160 Grant Street, Eugene</h1>'+
             '<div id="bodyContent">'+
             '<p><b>Community Supported Shelters</b> provides housing for the homeless in the form of <b>Conestoga Huts</b> and '+
             ' <b>Safe Spot Communities</b>.</p>'+
@@ -117,7 +118,7 @@
         var emcontentString = '<div id="content">'+
             '<div id="siteNotice">'+
             '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Eugene Mission</h1>'+
+            '<h1 id="firstHeading" class="firstHeading">Eugene Mission- 1542 West First Avenue, Eugene</h1>'+
             '<div id="bodyContent">'+
             '<p><b>Eugene Mission</b> is Eugene/Springfield’s only <b>full-service wellness center</b> for the homeless, providing its guests with a path off the streets, both for the <b>short-term</b> and <b>long-term</b>. </p>'+
             '<p>Their phone number is '+
@@ -160,6 +161,55 @@
 
         wsmarker.addListener('click', function() {
           wsinfowindow.open(map, wsmarker);
+        });
+
+        var fflmarker = new google.maps.Marker({position: ffl, map: map});
+
+        var fflcontentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">FOOD for Lane County- 770 Bailey Hill Road, Eugene</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>FOOD for Lane County</b> is a nonprofit food bank dedicated to  <b>alleviating hunger by creating access to food</b>. They accomplish this through their network of <b>Food Programs</b> and <b>Education Programs.</b>'
+             '</p>'+
+            '<p>More information can be found on their website, https://foodforlanecounty.org</p>.'
+            +
+            '<p> Alternatively, call their phone number for more information at is <b>541-343-2822</b></p>'
+            '</div>'+
+            '</div>';
+
+        var fflinfowindow = new google.maps.InfoWindow({
+          content: fflcontentString
+        });
+
+
+        fflmarker.addListener('click', function() {
+          fflinfowindow.open(map, fflmarker);
+        });
+
+
+        var shsmarker = new google.maps.Marker({position: shs, map: map});
+
+        var shscontentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">Peacehealth Sacred Heart Medical Center- 677 E 12th Ave, Eugene</h1>'+
+            '<div id="bodyContent">'+
+            '<p><b>Peacehealth Sacred Heart Medical center</b> is a <b>hospital</b>.'+
+             '</p>'+
+            '<p>More information can be found on their website, peacehealth.org</p>.'
+            +
+            '<p> Alternatively, call their phone number for more information at  <b>(541) 461-7550</b></p>'
+            '</div>'+
+            '</div>';
+
+        var shsinfowindow = new google.maps.InfoWindow({
+          content: shscontentString
+        });
+
+
+        shsmarker.addListener('click', function() {
+          shsinfowindow.open(map, shsmarker);
         });
 
 
