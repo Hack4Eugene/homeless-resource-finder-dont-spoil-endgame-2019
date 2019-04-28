@@ -12,11 +12,12 @@
       <div class="Menu Header">
         <h1>Available {{g.request}} Resources Near You</h1>
         <h3>Eugene, OR</h3>
-        <a
+        <button
           style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
-          href="http://localhost:5000/index"
-          >Return Home</a
+          onclick="window.location.href='/index'"
         >
+          Return Home
+        </button>
         <img
           style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
           src="../static/images/lanecounty.png"
@@ -38,12 +39,12 @@
           There Are Currently No Results For Your Request. Please Try Expanding Your Search.
         </h4>
         {% endif %}
-        <div class="results_backdrop">
+        <div style="word-wrap: break-word;" class="results_backdrop">
           {% for results in g.results %}
 
           <div class="results">
             <h4
-              style="font-size:22px; margin-left: 20px; margin-top:5; margin-bottom:0; text-decoration:underline;"
+              style="font-size:22px; margin-left: 20px; margin-top:5; margin-bottom:0; text-decoration:underline; word-wrap:break-word; white-space: normal;"
             >
               {{results.Name}}
             </h4>

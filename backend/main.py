@@ -178,6 +178,63 @@ def formatBed(my_list):
     if len(flask.g.results) == 0:
         flask.g.empty = True
 
+def formatBedEs(my_list):
+    '''
+    Formats the list into a usable form for the HTML
+    '''
+    # Create global jinja values for use in the HTML later
+    flask.g.results = []
+    flask.g.empty = False
+
+    count = 0
+    # Loop through the given list
+    for i in my_list:
+        # Add a list of restrictions that users can flock to
+        flask.g.results.append({"Restrictions":[]})
+        # Pre-assign the Name value to an empty string for easier parsing and manipulation
+        flask.g.results[count]['Name'] = ""
+        # If the entry is in the dictionary and the restriction is active for that service: append the image file name
+        if ("Gender" in i and i['Gender'] == "F"):
+            flask.g.results[count]['Restrictions'].append('female.png')
+        if ("Veteran" in i and i['Veteran'] == "Y"):
+            flask.g.results[count]['Restrictions'].append('veteran.png')
+        if ("Disabled" in i and i['Disabled'] == "Y"):
+            flask.g.results[count]['Restrictions'].append('disabled.png')
+        # Keep up-to-date info on available beds and attach it to Name for ease of use
+        if ("Beds" in i and i['Beds'] != "N"):
+            flask.g.results[count]['Name'] = str("(" + str(i['Beds']) + ") camas abiertas en ")
+        else:
+            # If there aren't any beds, delete the key and entry. Since we're in the format function for beds
+            # it's assumed that the service has beds, so since it doesn't, there's no point displaying it.
+            del flask.g.results[count]
+            continue
+        # If the dictionary has a name: check if it's too long
+        if ("Name" in i):
+            # If it is, add an ellipse to the end
+            if (len(i["Name"]) > 36):
+                flask.g.results[count]['Name'] += str(i["Name"][:36] + "...")
+            # If not, then keep the name as it is (Already have part of a string in this value so we can +=)
+            elif (len(i["Name"]) > 0 and flask.g.results[count]['Name'] != ""):
+                flask.g.results[count]['Name'] += str(i["Name"])
+            # None of the string is formed yet, so we have to create a new one
+            else:
+                # Put a name into results for display on the site
+                flask.g.results[count]['Name'] = str(i["Name"])
+        # If these values are sent in correctly, put them in the flask g results
+        if ("Address" in i and i['Address'] != None):
+            flask.g.results[count]['Address'] = i["Address"]
+        if ("Phone" in i and i['Phone'] != None):
+            flask.g.results[count]['Phone'] = i["Phone"]
+        if ("EndpointName" in i and i['EndpointName'] != None):
+            flask.g.results[count]['EndpointName'] = i["EndpointName"]
+        #Check if there are any reservations on who can use this clinic
+        if len(flask.g.results[count]["Restrictions"]) == 0:
+            flask.g.results[count]["Restrictions"].append(True)
+        count += 1
+    # Handle bad case
+    if len(flask.g.results) == 0:
+        flask.g.empty = True
+
 
 def formatFood(my_list):
     """
@@ -349,7 +406,7 @@ def search_es():
     # The same goes for food and clinics
     if (button == "beds"):
         flask.g.request = "Bedding"
-        formatBed(data_list)
+        formatBedEs(data_list)
         return flask.render_template("userselection_es.html")
     elif (button == "food"):
         flask.g.request = "Food"
