@@ -8,7 +8,7 @@ Web application developed for Lane County at Hack for a Cause 2019. Still in dev
 
 2) In the cloned repo directory, call: **make run**
 
-3) The provided make file will host a server on http://localhost:3000, where you can interact with the website. 
+3) The provided make file will host a server on http://localhost:5000, where you can interact with the website. 
 
 4) When done, exit the server (usually with CTRL-C).
 
