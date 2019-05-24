@@ -36,6 +36,16 @@
       </div>
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
+        <div class="filters">
+          <h4 style="font-size:22px; text-align:center; padding: 5px;">
+            Muestre este código a su conductor de autobús RVTD para un viaje gratis
+          </h4>
+          <img
+            style="height:100px; width:100px; margin-left: 25px;"
+            src="./static/images/qr.png"
+            alt=""
+          />
+        <hr />
         {% if g.empty == True %}
         <h4 style="text-align:center; padding: 10px;">
           Actualmente no hay resultados para su solicitud. Por favor intenta ampliar tu búsqueda.
@@ -48,15 +58,22 @@
             <h4
               style="font-size:22px; margin-left: 20px; margin-top:5; margin-bottom:0; text-decoration:underline;"
             >
-              {{results.Name}}
+              <b>{{results.Name}}</b>
             </h4>
-            <a
-              style="color:#444;"
-              href="http://localhost:5000/{{results.EndpointName}}"
-              >Dirección: {{results.Address}}</a
-            >
-            <br />
-            <a href="tel:{{results.Phone}}">Teléfono: {{results.Phone}}</a>
+            {% if results.Address != "" %}
+              <a
+                style="color:#444;"
+                href="https://maps.google.com/maps?q={{results.Address}}"
+                target="_blank"
+                >Dirección: {{results.Address}}</a
+              >
+            {% else %}
+            <label style="margin-left:20px;" for="#filters">
+              Sin dirección listada
+            </label>
+              <br />
+              <a href="tel:{{results.Phone}}">Phone: {{results.Phone}}</a>
+            {% endif %}
           </div>
           <br />
           <label style="margin-left:20px;" for="#filters"
@@ -80,24 +97,26 @@
           {% endfor %}
         </div>
       </div>
+    </div>
       <div class="Menu ContactForm">
-        <h2 style="text-decoration:underline; font-size:28px;">
+        <h2 style="font-size:28px;">
           Contactos de Emergencia
         </h2>
+        <hr>
         <!-- IDEA: City of Eugene Helpline Contact Form -->
 
         <label style="color:#ef0b31" for="#EES"
           ><i>Servicios de Emergencia de Eugene</i></label
         >
-        <a id="EES" style="" href="#">
-          <label for="">Teléfono: </label>(541) 344-8757
+        <a id="EES" style="" href="tel:5413448757">
+          <label for="">Teléfono: </label><u>(541) 344-8757</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="http://localhost:5000/ees"
-          ><label for="">Ubicación: </label>1255 Hilyard St, Eugene, OR 97401
+        <a style="font-size:20px;" href="https://maps.google.com/maps?q=1255 Hilyard St, Eugene, OR 97401" target="_blank"
+          ><label for="">Ubicación: </label><u>1255 Hilyard St, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -111,15 +130,15 @@
           ><i>Centro Médico Sagrado Corazón Servicios de Salud en el Hogar</i></label
         >
         <a id="SHMC" style="" href="tel:5414617550">
-          <label for="">Teléfono: </label>(541) 461-7550
+          <label for="">Teléfono: </label><u>(541) 461-7550</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/phone_icon.png"
             alt=""
           />
         </a>
-        <a style="font-size:20px;" href="#"
-          ><label for="">Ubicación: </label>677 E 12th Ave, Eugene, OR 97401
+        <a style="font-size:20px;" href="https://maps.google.com/maps?q=677 E 12th Ave, Eugene, OR 97401" target="_blank"
+          ><label for="">Ubicación: </label><u>677 E 12th Ave, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -131,15 +150,15 @@
         <label style="color:#ef0b31" for="#NEH"
           ><i>Línea de ayuda que no es de Emergencia</i></label
         >
-        <a id="NEH" style="" href="#">
-          <label for="">Teléfono: </label>(541) 555-5555
+        <a id="NEH" style="" href="tel:5416825111">
+          <label for="">Teléfono: </label><u>(541) 682-5111</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="#"
-          ><label for="">Ubicación: </label>2232 Coburg Rd, Eugene, OR 97401
+        <a style="font-size:20px;" href="https://maps.google.com/maps?q=2232 Coburg Rd, Eugene, OR 97401" target="_blank"
+          ><label for="">Ubicación: </label><u>2232 Coburg Rd, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"

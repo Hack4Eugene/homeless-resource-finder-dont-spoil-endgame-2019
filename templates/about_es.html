@@ -14,14 +14,14 @@
         <h1>Eugene Buscador de recursos para personas sin hogar</h1>
         <h1 style="font-size:24px">
           Rellene el formulario para resultados personalizados O
-          <form method="POST" action="/index" id="about" name="about">
+          <form method="POST" action="/index_es" id="about" name="about">
             <button
               style="background-color: #2dd844; margin-top:25px;"
               type="submit"
               id="continue"
               onclick="window.location.href = 'http://localhost:5000/index_es';"
             >
-              Continue
+              Omitir
             </button>
           </form>
         </h1>
@@ -39,7 +39,7 @@
           style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
           onclick="window.location.href='/mainmap'"
         >
-          Map All Results
+          Mapear Todos los Resultados
         </button>
         <a href="https://lanecounty.org/">
           <img
@@ -184,24 +184,24 @@
         </form>
       </div>
       <div class="Menu ContactForm">
-        <h2 style="text-decoration:underline; font-size:28px;">
+        <h2 style="font-size:28px;">
           Contactos de Emergencia
         </h2>
-
+        <hr>
         <!-- IDEA: City of Eugene Helpline Contact Form -->
 
         <label style="color:#ef0b31" for="#EES"
           ><i>Servicios de Emergencia de Eugene</i></label
         >
-        <a id="EES" style="" href="tel:5414617550">
-          <label for="">Teléfono: </label>(541) 344-8757
+        <a id="EES" style="" href="tel:5413448757">
+          <label for="">Teléfono: </label><u>(541) 344-8757</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="http://localhost:5000/ees"
-          ><label for="">Ubicación: </label>1255 Hilyard St, Eugene, OR 97401
+        <a style="font-size:20px;" href="https://maps.google.com/maps?q=1255 Hilyard St, Eugene, OR 97401" target="_blank"
+          ><label for="">Ubicación: </label><u>1255 Hilyard St, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -212,20 +212,18 @@
         <hr />
 
         <label style="color:#ef0b31" for="#SHMC"
-          ><i
-            >Centro Médico Sagrado Corazón Servicios de Salud en el Hogar</i
-          ></label
+          ><i>Centro Médico Sagrado Corazón Servicios de Salud en el Hogar</i></label
         >
         <a id="SHMC" style="" href="tel:5414617550">
-          <label for="">Teléfono: </label>(541) 461-7550
+          <label for="">Teléfono: </label><u>(541) 461-7550</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/phone_icon.png"
             alt=""
           />
         </a>
-        <a style="font-size:20px;" href="#"
-          ><label for="">Ubicación: </label>677 E 12th Ave, Eugene, OR 97401
+        <a style="font-size:20px;" href="https://maps.google.com/maps?q=677 E 12th Ave, Eugene, OR 97401" target="_blank"
+          ><label for="">Ubicación: </label><u>677 E 12th Ave, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -237,15 +235,15 @@
         <label style="color:#ef0b31" for="#NEH"
           ><i>Línea de ayuda que no es de Emergencia</i></label
         >
-        <a id="NEH" style="" href="#">
-          <label for="">Teléfono: </label>(541) 555-5555
+        <a id="NEH" style="" href="tel:5416825111">
+          <label for="">Teléfono: </label><u>(541) 682-5111</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="#"
-          ><label for="">Ubicación: </label>2232 Coburg Rd, Eugene, OR 97401
+        <a style="font-size:20px;" href="https://maps.google.com/maps?q=2232 Coburg Rd, Eugene, OR 97401" target="_blank"
+          ><label for="">Ubicación: </label><u>2232 Coburg Rd, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
