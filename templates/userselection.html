@@ -37,6 +37,17 @@
       </div>
       <div class="Menu Resources">
         <!-- IDEA: Here is where we will inject the appropriate DB data -->
+        <div class="filters">
+          <h4 style="font-size:22px; text-align:center; padding: 5px;">
+            Show this code to your RVTD bus driver for a free ride.
+          </h4>
+          <img
+            style="height:100px; width:100px; margin-left: 25px;"
+            src="./static/images/qr.png"
+            alt=""
+          />
+        <hr />
+        </div>
         {% if g.empty == True %}
         <h4 style="text-align:center; padding: 10px;">
           There Are Currently No Results For Your Request. Please Try Expanding
@@ -52,13 +63,20 @@
             >
               <b>{{results.Name}}</b>
             </h4>
-            <a
-              style="color:#444;"
-              href="http://localhost:5000/{{results.EndpointName}}"
-              >Address: {{results.Address}}</a
-            >
-            <br />
-            <a href="tel:{{results.Phone}}">Phone: {{results.Phone}}</a>
+            {% if results.Address != "" %}
+              <a
+                style="color:#444;"
+                href="https://maps.google.com/maps?q={{results.Address}}"
+                target="_blank"
+                >Address: {{results.Address}}</a
+              >
+            {% else %}
+            <label style="margin-left:20px;" for="#filters">
+              No Address Listed
+            </label>
+              <br />
+              <a href="tel:{{results.Phone}}">Phone: {{results.Phone}}</a>
+            {% endif %}
           </div>
           <br />
           <label style="margin-left:20px;" for="#filters"
@@ -67,7 +85,7 @@
 
           <div class="filters">
             {% if results.Restrictions[0] == True %}
-            <p style="color:#444; font-size:18px;">
+            <p style="color:#444; font-size:22px;">
               This Service is Accessible to All
             </p>
             {% endif %} {%for img in results.Restrictions%}

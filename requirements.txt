@@ -1,5 +1,5 @@
 flask
 flask-migrate
 pytest
-pymongo
+pymongo==3.7.2
 arrow
