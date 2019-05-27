@@ -5,84 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homeless Resource Finder</title>
-    <link rel="icon" href="../static/images/favicon.png">
+    <link rel="icon" href="../static/images/favicon.png" />
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body onload="getLocation()">
     <div class="container">
       <div class="Menu Header">
-        <h1>Homeless Resource Finder</h1>
-        <h3>Eugene, OR</h3>
-        <button
-          style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
-          onclick="window.location.href='/about'"
-        >
-          Restart
-        </button>
-        <button
-          style="position:absolute; top:10px; left:115px; font-size:24px; color:white; background-color:white; padding: 4px; border-radius:5px;"
-          onclick="window.location.href='/index_es'"
-        >
-          <img
-            style="height:23px; width:28px;"
-            src="../static/images/Espanol.png"
-            alt=""
-          />
-        </button>
-        <span class="btnsize">
-          <img
-            id="zoom"
-            style="width:50px; height:50px; position:absolute; bottom:10px; left:10px;"
-            src="../static/images/zoomin.png"
-            alt=""
-          />
-        </span>
-        <a href="https://lanecounty.org/">
-          <img
-            style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
-            src="../static/images/lanecounty.png"
-            alt=""
-          />
-        </a>
+        <div class="row">
+          <div class="column">
+            <button
+              style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
+              onclick="window.location.href='/about'"
+            >
+              Restart
+            </button>
+            <button
+              style="position:absolute; top:10px; left:115px; font-size:24px; color:white; background-color:white; padding: 4px; border-radius:5px;"
+              onclick="window.location.href='/index_es'"
+            >
+              <img
+                style="height:23px; width:28px;"
+                src="../static/images/Espanol.png"
+                alt=""
+              />
+            </button>
+            <span class="btnsize">
+              <img
+                id="zoom"
+                style="width:50px; height:50px; position:absolute; bottom:10px; left:10px;"
+                src="../static/images/zoomin.png"
+                alt=""
+              />
+            </span>
+          </div>
+          <div class="column">
+            <h1>Homeless Resource Finder</h1>
+            <h3><i>Lane County, OR </i></h3>
+          </div>
+          <div class="column">
+            <a href="https://lanecounty.org/">
+              <img
+                id="lanecounty"
+                style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
+                src="../static/images/lanecounty.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
       </div>
 
       <div class="Menu Resources">
         <form method="POST" action="/search" id="search" name="resGet">
           <h2 style="text-decoration:underline;">Available Resources</h2>
           <div id="buttonWrapper">
-            <button
-              style="padding: 20px 28px 20px 28px; width:240px; font-size:32px; text-decoration:bold;"
-              type="submit"
-              id="beds"
-              name="sub"
-              value="beds"
-            >
+            <button type="submit" id="beds" name="sub" value="beds">
               Beds<img
                 style="height:25%; width:25%; padding-left:10px;"
                 src="../static/images/bed.png"
               />
             </button>
             <br />
-            <button
-              style="padding: 20px 28px 20px 28px; width:240px; font-size:32px; text-decoration:bold;"
-              type="submit"
-              id="food"
-              name="sub"
-              value="food"
-            >
+            <button type="submit" id="food" name="sub" value="food">
               Food<img
                 style="height:25%; width:25%; padding-left:10px;"
                 src="../static/images/food.png"
               />
             </button>
             <br />
-            <button
-              style="padding: 20px 28px 20px 28px; width:240px; font-size:32px; text-decoration:bold;"
-              type="submit"
-              id="clinic"
-              name="sub"
-              value="clinic"
-            >
+            <button type="submit" id="clinic" name="sub" value="clinic">
               Clinics<img
                 style="height:25%; width:25%; padding-left:10px;"
                 src="../static/images/clinic.png"
@@ -95,10 +86,8 @@
         </form>
       </div>
       <div class="Menu ContactForm">
-        <h2 style="font-size:28px;">
-          Emergency Contacts
-        </h2>
-        <hr>
+        <h2 style="font-size:28px;">Emergency Contacts</h2>
+        <hr />
         <!-- IDEA: City of Eugene Helpline Contact Form -->
 
         <label style="color:#ef0b31" for="#EES"
@@ -111,8 +100,12 @@
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="https://maps.google.com/maps?q=1255 Hilyard St, Eugene, OR 97401" target="_blank"
-          ><label for="">Location: </label><u>1255 Hilyard St, Eugene, OR 97401</u>
+        <a
+          style="font-size:20px;"
+          href="https://maps.google.com/maps?q=1255 Hilyard St, Eugene, OR 97401"
+          target="_blank"
+          ><label for="">Location: </label
+          ><u>1255 Hilyard St, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -133,8 +126,12 @@
             alt=""
           />
         </a>
-        <a style="font-size:20px;" href="https://maps.google.com/maps?q=677 E 12th Ave, Eugene, OR 97401" target="_blank"
-          ><label for="">Location: </label><u>677 E 12th Ave, Eugene, OR 97401</u>
+        <a
+          style="font-size:20px;"
+          href="https://maps.google.com/maps?q=677 E 12th Ave, Eugene, OR 97401"
+          target="_blank"
+          ><label for="">Location: </label
+          ><u>677 E 12th Ave, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -153,8 +150,12 @@
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="https://maps.google.com/maps?q=2232 Coburg Rd, Eugene, OR 97401" target="_blank"
-          ><label for="">Location: </label><u>2232 Coburg Rd, Eugene, OR 97401</u>
+        <a
+          style="font-size:20px;"
+          href="https://maps.google.com/maps?q=2232 Coburg Rd, Eugene, OR 97401"
+          target="_blank"
+          ><label for="">Location: </label
+          ><u>2232 Coburg Rd, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"

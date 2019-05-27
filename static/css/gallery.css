@@ -68,7 +68,7 @@ h1 {
   background-color: white;
   color: #fff;
   border-radius: 5px;
-  padding: 10px;
+  padding: 25px;
   font-size: 150%;
 }
 
@@ -87,11 +87,13 @@ h1 {
   border: 2px solid white;
   text-align: center;
 }
+
 .ContactForm {
   grid-row: 2;
   text-align: center;
   border: 2px solid white;
 }
+
 button {
   font: bold 24px Arial;
   background-color: #357df2;
@@ -100,6 +102,7 @@ button {
   border: 1px solid #cccccc;
   margin-bottom: 30px;
 }
+
 .ContactForm a {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
@@ -107,9 +110,11 @@ button {
   color: #444;
   display: block;
 }
+
 .ContactForm a:hover {
   color: #357df2;
 }
+
 .row {
   display: flex;
   margin-top: 20px;
@@ -141,7 +146,7 @@ button {
   margin-left: 20px;
 }
 .logo-image {
-  height:64px;
+  height: 64px;
 }
 .radcont {
   display: block;
@@ -172,7 +177,7 @@ button {
   background-color: #ccc;
 }
 .radcont input:checked ~ .checkmark {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 .checkmark:after {
   content: "";
@@ -191,6 +196,62 @@ button {
   background: white;
 }
 
+#mapresults_btn {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  color: white;
+  background-color: red;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+#language_btn {
+  position: absolute;
+  top: 10px;
+  left: 215px;
+  font-size: 24px;
+  color: white;
+  background-color: white;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+#lanecounty {
+  height: 150px;
+  width: 100px;
+  position: absolute;
+  right: 0;
+  top: 25px;
+  margin-right: 50px;
+}
+
+#map {
+  height: 100%;
+}
+
+#mainh1 {
+  font-size: 48px;
+}
+
+#returnhome {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 24px;
+  color: white;
+  background-color: red;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+#restrictionimgs {
+  height: 100px;
+  width: 100px;
+  margin-left: 10px;
+}
+
 @media screen and (max-width: 500px) {
   .filters img {
     float: none;
@@ -198,18 +259,91 @@ button {
     text-align: left;
   }
 
-  #lanecounty {
+  .container {
     float: none;
     display: block;
-    text-align: left;
+    vertical-align: middle;
+  }
+
+  .Menu {
+    margin: 5px;
+  }
+
+  .Resources label {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+
+  #zoom {
+    display: none;
+  }
+
+  #lanecounty {
+    display: none;
+  }
+
+  h1 {
+    padding-top: 15px;
+    font-size: 36px;
+  }
+
+  #mainh1 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 24px;
   }
 }
 
-.Resources label {
-  font-size: 22px;
-  margin-left: 10px;
+.Resources button {
+  padding: 20px 28px 20px 28px;
+  width: 240px;
+  font-size: 32px;
+  text-decoration: bold;
 }
 
-#map {
-  height: 100%;
+@media screen and (max-width: 350px) {
+  #mapresults_btn {
+    font-size: 18px;
+  }
+  #language_btn {
+    left: 175px;
+  }
+  .Resources button {
+    padding: 10px 14px 10px 14px;
+    width: 120px;
+    font-size: 16px;
+    text-decoration: bold;
+  }
+
+  #returnhome {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    padding: 4px;
+    border-radius: 5px;
+  }
+
+  #restrictionimgs {
+    height: 50px;
+    width: 50px;
+    margin-left: 5px;
+  }
+
+  h1 {
+    padding-top: 15px;
+    font-size: 28px;
+  }
+
+  #mainh1 {
+    font-size: 28px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
 }

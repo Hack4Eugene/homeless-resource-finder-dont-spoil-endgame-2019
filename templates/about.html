@@ -5,66 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Homeless Resource Finder</title>
-    <link rel="icon" href="../static/images/favicon.png">
+    <link rel="icon" href="../static/images/favicon.png" />
     <link rel="stylesheet" href="../static/css/gallery.css" />
   </head>
   <body>
     <div class="container">
       <div class="Menu Header">
-        <h1>Homeless Resource Finder</h1>
-        <h1 style="font-size:24px">
-          Fill out the form for personalized results OR
-        </h1>
-        <form method="POST" action="/index" id="about" name="about">
-          <button
-            style="background-color: #2dd844; margin-top:5px;"
-            type="submit"
-            id="continue"
-            onclick="window.location.href = 'http://localhost:5000/index';"
-          >
-            Continue
-          </button>
-        </form>
-        <button
-          style="position:absolute; top:10px; left:10px; font-size:24px; color:white; background-color:red; padding: 4px; border-radius:5px;"
-          onclick="window.location.href='/mainmap'"
-        >
-          Map All Results
-        </button>
-        <button
-          style="position:absolute; top:10px; left:215px; font-size:24px; color:white; background-color:white; padding: 4px; border-radius:5px;"
-          onclick="window.location.href='/about_es'"
-        >
-          <img
-            style="height:23px; width:28px;"
-            src="../static/images/Espanol.png"
-            alt=""
-          />
-        </button>
-
-        <img
-          style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
-          src="../static/images/lanecounty.png"
-          alt=""
-        />
+        <div class="row">
+          <div class="column">
+            <button
+              id="mapresults_btn"
+              onclick="window.location.href='/mainmap'"
+            >
+              Map All Results
             </button>
-          </form>
-        </h1>
-        <a href="https://lanecounty.org/">
-          <img
-            style="height:150px; width:100px; position:absolute; right:0; top:25px; margin-right:60px;"
-            src="../static/images/lanecounty.png"
-            alt=""
-          />
-        </a>
-        <span class="btnsize">
-          <img
-            id="zoom"
-            style="width:50px; height:50px; position:absolute; bottom:10px; left:10px;"
-            src="../static/images/zoomin.png"
-            alt=""
-          />
-        </span>
+            <button
+              id="language_btn"
+              onclick="window.location.href='/about_es'"
+            >
+              <img
+                style="height:23px; width:28px;"
+                src="../static/images/Espanol.png"
+                alt=""
+              />
+            </button>
+            <span class="btnsize">
+              <img
+                id="zoom"
+                style="width:50px; height:50px; position:absolute; bottom:10px; left:10px;"
+                src="../static/images/zoomin.png"
+                alt=""
+              />
+            </span>
+          </div>
+          <div class="column">
+            <h1 id="mainh1">Homeless Resource Finder</h1>
+            <h3>Fill out the form below for personalized results <i>OR</i></h3>
+            <form method="POST" action="/index" id="about" name="about">
+              <button
+                style="background-color: #2dd844; margin-top:5px;"
+                type="submit"
+                id="continue"
+                onclick="window.location.href = 'http://localhost:5000/index';"
+              >
+                Skip
+              </button>
+            </form>
+          </div>
+          <div class="column">
+            <a href="https://lanecounty.org/">
+              <img
+                id="lanecounty"
+                src="../static/images/lanecounty.png"
+                alt=""
+              />
+            </a>
+          </div>
+        </div>
       </div>
       <div class="Menu Resources">
         <form method="POST" action="/index" id="about" name="about">
@@ -187,10 +184,8 @@
         </form>
       </div>
       <div class="Menu ContactForm">
-        <h2 style="font-size:28px;">
-          Emergency Contacts
-        </h2>
-        <hr>
+        <h2 style="font-size:28px;">Emergency Contacts</h2>
+        <hr />
         <!-- IDEA: City of Eugene Helpline Contact Form -->
 
         <label style="color:#ef0b31" for="#EES"
@@ -203,8 +198,12 @@
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="https://maps.google.com/maps?q=1255 Hilyard St, Eugene, OR 97401" target="_blank"
-          ><label for="">Location: </label><u>1255 Hilyard St, Eugene, OR 97401</u>
+        <a
+          style="font-size:20px;"
+          href="https://maps.google.com/maps?q=1255 Hilyard St, Eugene, OR 97401"
+          target="_blank"
+          ><label for="">Location: </label
+          ><u>1255 Hilyard St, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -225,8 +224,12 @@
             alt=""
           />
         </a>
-        <a style="font-size:20px;" href="https://maps.google.com/maps?q=677 E 12th Ave, Eugene, OR 97401" target="_blank"
-          ><label for="">Location: </label><u>677 E 12th Ave, Eugene, OR 97401</u>
+        <a
+          style="font-size:20px;"
+          href="https://maps.google.com/maps?q=677 E 12th Ave, Eugene, OR 97401"
+          target="_blank"
+          ><label for="">Location: </label
+          ><u>677 E 12th Ave, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"
@@ -245,8 +248,12 @@
             src="../static/images/phone_icon.png"
             alt=""
         /></a>
-        <a style="font-size:20px;" href="https://maps.google.com/maps?q=2232 Coburg Rd, Eugene, OR 97401" target="_blank"
-          ><label for="">Location: </label><u>2232 Coburg Rd, Eugene, OR 97401</u>
+        <a
+          style="font-size:20px;"
+          href="https://maps.google.com/maps?q=2232 Coburg Rd, Eugene, OR 97401"
+          target="_blank"
+          ><label for="">Location: </label
+          ><u>2232 Coburg Rd, Eugene, OR 97401</u>
           <img
             style="height:7%; width:7%;"
             src="../static/images/location_dopplar.png"

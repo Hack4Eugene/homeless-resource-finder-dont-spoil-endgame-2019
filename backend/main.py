@@ -20,7 +20,7 @@ app = flask.Flask(__name__, static_folder="../static", template_folder="../templ
 
 # Establish database at run time
 # Get the MongoDB client
-client = MongoClient('mongodb://dontspoilendgame:thanos123@cluster0-shard-00-00-spqqu.mongodb.net:27017,cluster0-shard-00-01-spqqu.mongodb.net:27017,cluster0-shard-00-02-spqqu.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true')
+client = MongoClient('mongodb://dontspoilendgame:thanos123@cluster0-shard-00-00-spqqu.mongodb.net:27017,cluster0-shard-00-01-spqqu.mongodb.net:27017,cluster0-shard-00-02-spqqu.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&connect=False')
 
 # Get the MongoDB database we are using
 db = client.homelessData
