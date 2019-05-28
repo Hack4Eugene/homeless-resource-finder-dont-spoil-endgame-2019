@@ -15,8 +15,13 @@ input {
 }
 
 body {
-  margin: 40px;
-  background-color: #93d2f9;
+  margin: 30px;
+  /*background-color: #93d2f9;*/
+  background: url("../images/forestbg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  font-family: verdana;
 }
 
 img.bg {
@@ -68,6 +73,7 @@ h1 {
   background-color: white;
   color: #fff;
   border-radius: 5px;
+  border: 2px solid white;
   padding: 25px;
   font-size: 150%;
 }
@@ -76,7 +82,6 @@ h1 {
   position: relative;
   grid-column: 1 / span 3;
   text-align: center;
-  border: 2px solid white;
 }
 
 .Resources {
@@ -84,14 +89,13 @@ h1 {
   grid-row: 2;
   display: grid;
   grid-gap: 10px;
-  border: 2px solid white;
+
   text-align: center;
 }
 
 .ContactForm {
   grid-row: 2;
   text-align: center;
-  border: 2px solid white;
 }
 
 button {
@@ -121,7 +125,13 @@ button {
 }
 .column {
   flex: 50%;
+  max-width: 50%;
 }
+
+#gender_row label {
+  font-size: 22px;
+}
+
 .results p {
   font-size: 18px;
   margin-left: 20px;
@@ -148,6 +158,14 @@ button {
 .logo-image {
   height: 64px;
 }
+
+.Resources button {
+  padding: 20px 28px 20px 28px;
+  width: 240px;
+  font-size: 32px;
+  text-decoration: bold;
+}
+/*
 .radcont {
   display: block;
   position: absolute;
@@ -195,7 +213,7 @@ button {
   border-radius: 50%;
   background: white;
 }
-
+*/
 #mapresults_btn {
   position: absolute;
   top: 10px;
@@ -252,6 +270,11 @@ button {
   margin-left: 10px;
 }
 
+#aboutinput .row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
 @media screen and (max-width: 500px) {
   .filters img {
     float: none;
@@ -294,13 +317,19 @@ button {
   h3 {
     font-size: 24px;
   }
-}
 
-.Resources button {
-  padding: 20px 28px 20px 28px;
-  width: 240px;
-  font-size: 32px;
-  text-decoration: bold;
+  #aboutinput #gender_row {
+    display: inline-block;
+  }
+
+  #aboutinput #gender_row .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+  #header_row .column {
+    flex: 100%;
+    max-width: 100%;
+  }
 }
 
 @media screen and (max-width: 350px) {
@@ -311,10 +340,14 @@ button {
     left: 175px;
   }
   .Resources button {
-    padding: 10px 14px 10px 14px;
-    width: 120px;
-    font-size: 16px;
+    padding: 12px 16px 12px 16px;
+    width: 140px;
+    font-size: 18px;
     text-decoration: bold;
+  }
+
+  .Resources p {
+    font-size: 18px;
   }
 
   #returnhome {
@@ -334,6 +367,25 @@ button {
     margin-left: 5px;
   }
 
+  #continue {
+    background-color: #2dd844;
+    margin-top: 25px;
+    font-size: 16px;
+  }
+
+  #aboutinput label {
+    font-size: 18px;
+  }
+
+  #aboutinput #gender_row {
+    display: inline-block;
+  }
+
+  #aboutinput #gender_row .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+
   h1 {
     padding-top: 15px;
     font-size: 28px;
@@ -345,5 +397,14 @@ button {
 
   h3 {
     font-size: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  #header_row .column {
+    flex: 100%;
+    max-width: 100%;
   }
 }

@@ -11,7 +11,7 @@
   <body>
     <div class="container">
       <div class="Menu Header">
-        <div class="row">
+        <div id="header_row" class="row">
           <div class="column">
             <button
               id="mapresults_btn"
@@ -63,17 +63,18 @@
           </div>
         </div>
       </div>
-      <div class="Menu Resources">
+      <div id="aboutinput" class="Menu Resources">
         <form method="POST" action="/index" id="about" name="about">
-          <div class="row">
-            <div class="column"><h3 style="font-size:20px;">Gender:</h3></div>
+          <div id="gender_row" class="row">
+            <div class="col">
+              <label for=""><b>Gender</b></label>
+            </div>
             <div class="column">
               <label class="radcont"
                 >Male <input name="gender" id="male" value="M" type="radio" />
                 <span class="checkmark"></span>
               </label>
             </div>
-
             <div class="column">
               <label class="radcont"
                 >Female
@@ -88,11 +89,19 @@
                 <span class="checkmark"></span>
               </label>
             </div>
-          </div>
-          <hr />
-          <div class="row">
             <div class="column">
-              <h3 style="font-size:20px;">18+ Years Old?</h3>
+              <label class="radcont"
+                >Other
+                <input name="gender" id="trans" value="T" type="radio" />
+                <span class="checkmark"></span>
+              </label>
+            </div>
+          </div>
+
+          <hr />
+          <div id="gender_row" class="row">
+            <div class="column">
+              <label for=""><b>18+ Years Old?</b></label>
             </div>
             <div class="column">
               <label class="radcont"
@@ -108,8 +117,10 @@
             </div>
           </div>
           <hr />
-          <div class="row">
-            <div class="column"><h3 style="font-size:20px;">Veteran?</h3></div>
+          <div id="gender_row" class="row">
+            <div class="column">
+              <label for=""><b>Veteran?</b></label>
+            </div>
             <div class="column">
               <label class="radcont"
                 >Yes <input name="veteran" id="yes" value="Y" type="radio" />
@@ -124,8 +135,10 @@
             </div>
           </div>
           <hr />
-          <div class="row">
-            <div class="column"><h3 style="font-size:20px;">Disabled?</h3></div>
+          <div id="gender_row" class="row">
+            <div class="column">
+              <label for=""><b>Disabled?</b></label>
+            </div>
             <div class="column">
               <label class="radcont"
                 >Yes <input name="disabled" id="yes" value="Y" type="radio" />
@@ -140,8 +153,10 @@
             </div>
           </div>
           <hr />
-          <div class="row">
-            <div class="column"><h3 style="font-size:20px;">Pets?</h3></div>
+          <div id="gender_row" class="row">
+            <div class="column">
+              <label for=""><b>Pets?</b></label>
+            </div>
             <div class="column">
               <label class="radcont"
                 >Yes <input name="pets" id="yes" value="Y" type="radio" />
@@ -156,9 +171,9 @@
             </div>
           </div>
           <hr />
-          <div class="row">
+          <div id="gender_row" class="row">
             <div class="column">
-              <h3 style="font-size:20px;">Are You With Family?</h3>
+              <label for=""><b>With Family?</b></label>
             </div>
             <div class="column">
               <label class="radcont"
@@ -174,7 +189,7 @@
             </div>
           </div>
           <button
-            style="background-color: #2dd844; margin-top:25px;"
+            style="background-color: #2dd844; margin-top:45px;"
             type="submit"
             id="continue"
             onclick="window.location.href = 'http://localhost:5000/index';"

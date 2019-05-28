@@ -12,7 +12,7 @@
     <div class="container">
       <!-- IDEA: Header Menu Layout -->
       <div class="Menu Header">
-        <div class="row">
+        <div id="header_row" class="row">
           <div class="column">
             <button id="returnhome" onclick="window.location.href='/index'">
               Return Home
@@ -62,7 +62,8 @@
           There Are Currently No Results For Your Request. Please Try Expanding
           Your Search.
         </h4>
-        {% endif %}
+
+        {% else %}
         <div style="word-wrap: break-word;" class="results_backdrop">
           {% for results in g.results %}
 
@@ -97,17 +98,18 @@
             <p style="color:#444; font-size:22px;">
               This Service is Accessible to All
             </p>
-            {% endif %}
+            {% else %}
             <!--
               Otherwise, display the relevant images which correspond to the respective restrictions.
             -->
             {%for img in results.Restrictions%}
             <img id="restrictionimgs" src="./static/images/{{img}}" alt="" /> {%
-            endfor %}
+            endfor %} {% endif %}
           </div>
           <hr />
           {% endfor %}
         </div>
+        {% endif %}
       </div>
 
       <!-- Side-Menu contact form. -->
