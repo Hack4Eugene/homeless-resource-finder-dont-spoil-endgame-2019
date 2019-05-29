@@ -50,7 +50,7 @@
             Show this code to your RVTD bus driver for a free ride.
           </h4>
           <img
-            style="height:100px; width:100px; margin-left: 25px;"
+            style="height:100px; width:100px; margin-left: auto; margin-right:auto; display:block;"
             src="./static/images/qr.png"
             alt=""
           />
@@ -75,18 +75,25 @@
             </h4>
             {% if results.Address != "" %}
             <a
-              style="color:#444;"
+              style="color:#444; float:left;"
               href="https://maps.google.com/maps?q={{results.Address}}"
               target="_blank"
               >Address: {{results.Address}}</a
             >
             {% else %}
-            <label style="margin-left:20px;" for="#filters">
+            <label style="margin-left:20px; float:left;" for="#filters">
               No Address Listed
             </label>
-            <br />
-            <a href="tel:{{results.Phone}}">Phone: {{results.Phone}}</a> {%
-            endif %}
+            {% endif %} <br />
+            {% if results.Phone != "" %}
+            <a style="float:left;" href="tel:{{results.Phone}}"
+              >Phone: {{results.Phone}}</a
+            >
+            {% else %}
+            <label style="margin-left:20px; float:left;" for="#filters">
+              No Phone Number Listed
+            </label>
+            {% endif %}
           </div>
           <br />
           <label style="margin-left:20px;" for="#filters"
@@ -115,11 +122,8 @@
       <!-- Side-Menu contact form. -->
       <div class="Menu ContactForm">
         <h2 style="font-size:28px;">Emergency Contacts</h2>
-        <<<<<<< Updated upstream
         <hr />
-        ======= >>>>>>> Stashed changes
         <!-- IDEA: City of Eugene Helpline Contact Form -->
-
         <label style="color:#ef0b31" for="#EES"
           ><i>Eugene Emergency Services</i></label
         >
@@ -141,7 +145,6 @@
             src="../static/images/location_dopplar.png"
             alt=""
         /></a>
-
         <!-- IDEA: Sacred Heart Helpline Contact Form -->
         <hr />
 
@@ -167,7 +170,6 @@
             src="../static/images/location_dopplar.png"
             alt=""
         /></a>
-
         <!-- IDEA: Non-Emergency Helpline Contact Form -->
         <hr />
         <label style="color:#ef0b31" for="#NEH"
